@@ -1,0 +1,21 @@
+/*
+Theme Name:        CRRG
+Theme URI:         https://crrg.club
+Author:            Castle Rock Repeater Group
+Author URI:        https://crrg.club
+Description:       A flexible, accessible WordPress theme built for the Castle Rock Repeater Group amateur radio club. Includes a configurable front page (hero, info bar, feature cards, latest posts, call to action), three header layouts, an optional top bar, sticky header, five content layouts (right / left / no sidebar, dual sidebars, full width) selectable globally, per content type and per page, fourteen widget areas, five menu locations, colour presets, Google or system fonts, club-specific widgets (repeaters, net schedule, contact, call to action) and block patterns.
+Version:           1.0.0
+Requires at least: 6.3
+Tested up to:      7.1
+Requires PHP:      7.4
+License:           GNU General Public License v2 or later
+License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:       crrg
+Tags:              blog, news, two-columns, three-columns, left-sidebar, right-sidebar, grid-layout, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, block-patterns, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
+
+CRRG WordPress Theme, (C) 2026 Castle Rock Repeater Group.
+CRRG is distributed under the terms of the GNU GPL v2 or later.
+
+The theme's styles live in assets/css/theme.css. This file only holds the
+theme header so WordPress can identify the theme.
+*/
