@@ -13,116 +13,105 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Colour presets offered in the Customizer.
  *
- * Each preset fills every colour setting. "colorado" is the default palette.
+ * Each preset fills every colour setting. "crrg-light" is the default palette.
  *
  * @return array
  */
 function crrg_color_presets() {
+	// Logo colours: orange #ea6d4b, charcoal #333638 and white. Link text
+	// uses a darker shade of the orange so it stays readable on white.
+	$logo = array(
+		'primary_color'          => '#333638',
+		'secondary_color'        => '#ea6d4b',
+		'accent_color'           => '#ea6d4b',
+		'body_bg_color'          => '#f7f7f6',
+		'surface_color'          => '#ffffff',
+		'text_color'             => '#3d4043',
+		'heading_color'          => '#333638',
+		'link_color'             => '#b84a2b',
+		'link_hover_color'       => '#333638',
+		'topbar_bg_color'        => '#333638',
+		'topbar_text_color'      => '#ffffff',
+		'header_bg_color'        => '#ffffff',
+		'header_text_color'      => '#333638',
+		'hero_bg_color'          => '#f6f2ef',
+		'banner_bg_color'        => '#f1edea',
+		'footer_bg_color'        => '#333638',
+		'footer_text_color'      => '#d5d7d9',
+		'footer_heading_color'   => '#ffffff',
+		'footer_bottom_bg_color' => '#2a2c2e',
+		'hero_overlay_color'     => '#333638',
+	);
+
 	$presets = array(
-		'colorado' => array(
-			'label'                  => __( 'Colorado Navy (default)', 'crrg' ),
-			'primary_color'          => '#14304f',
-			'secondary_color'        => '#c8102e',
-			'accent_color'           => '#f2b705',
-			'body_bg_color'          => '#f3f5f8',
-			'surface_color'          => '#ffffff',
-			'text_color'             => '#2b3440',
-			'heading_color'          => '#0e2238',
-			'link_color'             => '#1c5d99',
-			'link_hover_color'       => '#c8102e',
-			'topbar_bg_color'        => '#0b1d31',
-			'topbar_text_color'      => '#c9d4e2',
-			'header_bg_color'        => '#14304f',
-			'header_text_color'      => '#ffffff',
-			'footer_bg_color'        => '#0e2238',
-			'footer_text_color'      => '#c3cedb',
-			'footer_heading_color'   => '#ffffff',
-			'footer_bottom_bg_color' => '#081626',
-			'hero_overlay_color'     => '#0b1d31',
+		'crrg-light'   => array_merge(
+			$logo,
+			array( 'label' => __( 'CRRG Light: white header, light hero (default)', 'crrg' ) )
 		),
-		'signal'   => array(
-			'label'                  => __( 'Signal Orange', 'crrg' ),
-			'primary_color'          => '#23272b',
-			'secondary_color'        => '#e8720c',
-			'accent_color'           => '#ffc857',
-			'body_bg_color'          => '#f4f4f2',
-			'surface_color'          => '#ffffff',
-			'text_color'             => '#2e3236',
-			'heading_color'          => '#16191c',
-			'link_color'             => '#c25a00',
-			'link_hover_color'       => '#23272b',
-			'topbar_bg_color'        => '#16191c',
-			'topbar_text_color'      => '#c8cbce',
-			'header_bg_color'        => '#23272b',
-			'header_text_color'      => '#ffffff',
-			'footer_bg_color'        => '#1b1e21',
-			'footer_text_color'      => '#b9bdc1',
-			'footer_heading_color'   => '#ffffff',
-			'footer_bottom_bg_color' => '#121416',
-			'hero_overlay_color'     => '#16191c',
+		'crrg-classic' => array_merge(
+			$logo,
+			array(
+				'label'           => __( 'CRRG Classic: white header, charcoal hero and banner', 'crrg' ),
+				'body_bg_color'   => '#f4f4f3',
+				'hero_bg_color'   => '#333638',
+				'banner_bg_color' => '#333638',
+			)
 		),
-		'tactical' => array(
-			'label'                  => __( 'Tactical Olive', 'crrg' ),
-			'primary_color'          => '#2f3527',
-			'secondary_color'        => '#b4532a',
-			'accent_color'           => '#c9b26b',
-			'body_bg_color'          => '#f2f1ec',
-			'surface_color'          => '#ffffff',
-			'text_color'             => '#33352f',
-			'heading_color'          => '#1f231a',
-			'link_color'             => '#6b7a3a',
-			'link_hover_color'       => '#b4532a',
-			'topbar_bg_color'        => '#1f231a',
-			'topbar_text_color'      => '#cfd1c4',
-			'header_bg_color'        => '#2f3527',
-			'header_text_color'      => '#ffffff',
-			'footer_bg_color'        => '#23281d',
-			'footer_text_color'      => '#c2c4b6',
-			'footer_heading_color'   => '#ffffff',
-			'footer_bottom_bg_color' => '#181b14',
-			'hero_overlay_color'     => '#1f231a',
+		'crrg-dark'    => array_merge(
+			$logo,
+			array(
+				'label'                  => __( 'CRRG Dark: charcoal header and hero', 'crrg' ),
+				'body_bg_color'          => '#f4f4f3',
+				'topbar_bg_color'        => '#222426',
+				'topbar_text_color'      => '#d5d7d9',
+				'header_bg_color'        => '#333638',
+				'header_text_color'      => '#ffffff',
+				'hero_bg_color'          => '#2a2c2e',
+				'banner_bg_color'        => '#333638',
+				'footer_bg_color'        => '#222426',
+				'footer_bottom_bg_color' => '#18191a',
+			)
 		),
-		'forest'   => array(
-			'label'                  => __( 'Front Range Forest', 'crrg' ),
-			'primary_color'          => '#1d3b2f',
-			'secondary_color'        => '#2f7d4f',
-			'accent_color'           => '#e0b23c',
-			'body_bg_color'          => '#f2f5f2',
-			'surface_color'          => '#ffffff',
-			'text_color'             => '#2a332e',
-			'heading_color'          => '#14281f',
-			'link_color'             => '#2f7d4f',
-			'link_hover_color'       => '#1d3b2f',
-			'topbar_bg_color'        => '#14281f',
-			'topbar_text_color'      => '#c6d3cb',
-			'header_bg_color'        => '#1d3b2f',
-			'header_text_color'      => '#ffffff',
-			'footer_bg_color'        => '#16301f',
-			'footer_text_color'      => '#bfcdc4',
-			'footer_heading_color'   => '#ffffff',
-			'footer_bottom_bg_color' => '#0f2116',
-			'hero_overlay_color'     => '#14281f',
+		'crrg-orange'  => array_merge(
+			$logo,
+			array(
+				'label'             => __( 'CRRG Orange: orange top bar, warm light hero', 'crrg' ),
+				'topbar_bg_color'   => '#ea6d4b',
+				'topbar_text_color' => '#1d1e20',
+				'hero_bg_color'     => '#fdf1ec',
+				'banner_bg_color'   => '#fbe7df',
+			)
 		),
-		'light'    => array(
-			'label'                  => __( 'Clean Light', 'crrg' ),
-			'primary_color'          => '#1a4f8b',
-			'secondary_color'        => '#d2232a',
-			'accent_color'           => '#f2b705',
-			'body_bg_color'          => '#ffffff',
-			'surface_color'          => '#f6f8fb',
-			'text_color'             => '#2b3440',
-			'heading_color'          => '#102a43',
-			'link_color'             => '#1a4f8b',
-			'link_hover_color'       => '#d2232a',
-			'topbar_bg_color'        => '#1a4f8b',
-			'topbar_text_color'      => '#ffffff',
-			'header_bg_color'        => '#ffffff',
-			'header_text_color'      => '#102a43',
-			'footer_bg_color'        => '#102a43',
-			'footer_text_color'      => '#c5d2e0',
-			'footer_heading_color'   => '#ffffff',
-			'footer_bottom_bg_color' => '#0a1d30',
-			'hero_overlay_color'     => '#102a43',
+		'crrg-mono'    => array_merge(
+			$logo,
+			array(
+				'label'                  => __( 'Black & White: all light, orange buttons only', 'crrg' ),
+				'body_bg_color'          => '#ffffff',
+				'topbar_bg_color'        => '#f2f2f1',
+				'topbar_text_color'      => '#333638',
+				'hero_bg_color'          => '#f4f4f3',
+				'banner_bg_color'        => '#f4f4f3',
+				'footer_bg_color'        => '#f2f2f1',
+				'footer_text_color'      => '#4a4d50',
+				'footer_heading_color'   => '#333638',
+				'footer_bottom_bg_color' => '#e7e7e6',
+			)
+		),
+		'crrg-blue'    => array_merge(
+			$logo,
+			array(
+				'label'                  => __( 'Orange & Blue: blue top bar, links and footer', 'crrg' ),
+				'primary_color'          => '#1f4e79',
+				'link_color'             => '#1d5fa8',
+				'link_hover_color'       => '#b84a2b',
+				'topbar_bg_color'        => '#1f4e79',
+				'hero_bg_color'          => '#f1f5f9',
+				'banner_bg_color'        => '#1f4e79',
+				'footer_bg_color'        => '#1b2a3a',
+				'footer_text_color'      => '#c7d1dc',
+				'footer_bottom_bg_color' => '#142030',
+				'hero_overlay_color'     => '#1f4e79',
+			)
 		),
 	);
 
@@ -146,14 +135,14 @@ function crrg_option_defaults() {
 		return $defaults;
 	}
 
-	$colors = crrg_color_presets()['colorado'];
+	$colors = crrg_color_presets()['crrg-light'];
 	unset( $colors['label'] );
 
 	$defaults = array_merge(
 		$colors,
 		array(
 			// Colours.
-			'color_preset'             => 'colorado',
+			'color_preset'             => 'crrg-light',
 			'hero_overlay_opacity'     => 70,
 
 			// Typography.
@@ -171,10 +160,11 @@ function crrg_option_defaults() {
 			'transparent_header_front' => false,
 			'header_search'            => true,
 			'header_social'            => false,
-			'show_site_title'          => true,
-			'show_tagline'             => true,
+			'show_site_title'          => false,
+			'show_tagline'             => false,
 			'header_callsign'          => '',
-			'logo_max_height'          => 64,
+			'logo_max_height'          => 88,
+			'bundled_logo'             => true,
 			'header_cta_text'          => __( 'Join the Club', 'crrg' ),
 			'header_cta_url'           => '/membership/',
 			'header_cta_new_tab'       => false,

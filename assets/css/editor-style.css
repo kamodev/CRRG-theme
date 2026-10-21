@@ -5,7 +5,7 @@
 body,
 .editor-styles-wrapper {
 	background: var(--crrg-surface, #fff);
-	color: var(--crrg-text, #2b3440);
+	color: var(--crrg-text, #3d4043);
 	font-family: var(--crrg-font-body, Arial, sans-serif);
 	font-size: var(--crrg-font-size, 17px);
 	line-height: 1.65;
@@ -19,7 +19,7 @@ body,
 .editor-styles-wrapper h6,
 .editor-post-title__input,
 .editor-styles-wrapper .wp-block-post-title {
-	color: var(--crrg-heading, #0e2238);
+	color: var(--crrg-heading, #333638);
 	font-family: var(--crrg-font-heading, Arial, sans-serif);
 	font-weight: var(--crrg-heading-weight, 600);
 	line-height: 1.2;
@@ -28,7 +28,7 @@ body,
 }
 
 .editor-styles-wrapper a {
-	color: var(--crrg-link, #1c5d99);
+	color: var(--crrg-link, #b84a2b);
 }
 
 .editor-styles-wrapper .wp-block {
@@ -46,13 +46,13 @@ body,
 .editor-styles-wrapper blockquote,
 .editor-styles-wrapper .wp-block-quote {
 	padding-left: 1.5em;
-	border-left: 4px solid var(--crrg-accent, #f2b705);
+	border-left: 4px solid var(--crrg-accent, #ea6d4b);
 }
 
 .editor-styles-wrapper .wp-block-button__link {
 	border-radius: var(--crrg-radius, 6px);
-	background-color: var(--crrg-secondary, #c8102e);
-	color: var(--crrg-on-secondary, #fff);
+	background-color: var(--crrg-secondary, #ea6d4b);
+	color: var(--crrg-on-secondary, #111);
 	font-family: var(--crrg-font-heading, Arial, sans-serif);
 	font-weight: 600;
 	letter-spacing: 0.05em;
@@ -62,11 +62,11 @@ body,
 .editor-styles-wrapper .is-style-outline .wp-block-button__link {
 	border: 2px solid currentColor;
 	background: transparent;
-	color: var(--crrg-secondary, #c8102e);
+	color: var(--crrg-secondary, #ea6d4b);
 }
 
 .editor-styles-wrapper .wp-block-table thead th {
-	background: var(--crrg-primary, #14304f);
+	background: var(--crrg-primary, #333638);
 	color: var(--crrg-on-primary, #fff);
 }
 
@@ -87,9 +87,9 @@ body,
 
 .editor-styles-wrapper .wp-block-group.is-style-crrg-card {
 	padding: 1.75rem;
-	border-top: 4px solid var(--crrg-accent, #f2b705);
+	border-top: 4px solid var(--crrg-accent, #ea6d4b);
 	border-radius: var(--crrg-radius, 6px);
-	background: color-mix(in srgb, var(--crrg-primary, #14304f) 6%, #fff);
+	background: color-mix(in srgb, var(--crrg-primary, #333638) 6%, #fff);
 }
 
 .editor-styles-wrapper .is-style-crrg-underline {
@@ -104,7 +104,7 @@ body,
 	width: 3.5rem;
 	height: 4px;
 	border-radius: 2px;
-	background: var(--crrg-accent, #f2b705);
+	background: var(--crrg-accent, #ea6d4b);
 	content: "";
 }
 
@@ -130,7 +130,7 @@ body,
 	width: 1.2em;
 	height: 1.2em;
 	border-radius: 50%;
-	background: var(--crrg-secondary, #c8102e) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5 9-10'/%3E%3C/svg%3E") center / 70% no-repeat;
+	background: var(--crrg-secondary, #ea6d4b) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5 9-10'/%3E%3C/svg%3E") center / 70% no-repeat;
 	content: "";
 }
 

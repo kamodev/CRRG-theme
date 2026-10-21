@@ -21,6 +21,9 @@ function crrg_body_classes( $classes ) {
 	$classes[] = 'cards-' . crrg_get_option( 'card_style' );
 	$classes[] = 'mobile-menu-' . crrg_get_option( 'mobile_menu_style' );
 
+	$classes[] = crrg_is_dark( 'header_bg_color' ) ? 'header-is-dark' : 'header-is-light';
+	$classes[] = crrg_is_dark( crrg_get_option( 'hero_image' ) ? 'hero_overlay_color' : 'hero_bg_color' ) ? 'hero-is-dark' : 'hero-is-light';
+
 	if ( crrg_get_option( 'sticky_header' ) ) {
 		$classes[] = 'has-sticky-header';
 	}

@@ -33,28 +33,41 @@
 /* 1. Variables
 --------------------------------------------- */
 :root {
-	--crrg-primary: #14304f;
-	--crrg-secondary: #c8102e;
-	--crrg-accent: #f2b705;
-	--crrg-body-bg: #f3f5f8;
+	/* Logo palette: orange #ea6d4b, charcoal #333638, white. */
+	--crrg-primary: #333638;
+	--crrg-secondary: #ea6d4b;
+	--crrg-accent: #ea6d4b;
+	--crrg-body-bg: #f7f7f6;
 	--crrg-surface: #ffffff;
-	--crrg-text: #2b3440;
-	--crrg-heading: #0e2238;
-	--crrg-link: #1c5d99;
-	--crrg-link-hover: #c8102e;
-	--crrg-topbar-bg: #0b1d31;
-	--crrg-topbar-text: #c9d4e2;
-	--crrg-header-bg: #14304f;
-	--crrg-header-text: #ffffff;
-	--crrg-footer-bg: #0e2238;
-	--crrg-footer-text: #c3cedb;
+	--crrg-text: #3d4043;
+	--crrg-heading: #333638;
+	--crrg-link: #b84a2b;
+	--crrg-link-hover: #333638;
+	--crrg-topbar-bg: #333638;
+	--crrg-topbar-text: #ffffff;
+	--crrg-header-bg: #ffffff;
+	--crrg-header-text: #333638;
+	--crrg-hero-bg: #f6f2ef;
+	--crrg-banner-bg: #f1edea;
+	--crrg-footer-bg: #333638;
+	--crrg-footer-text: #d5d7d9;
 	--crrg-footer-heading: #ffffff;
-	--crrg-footer-bottom-bg: #081626;
-	--crrg-hero-overlay: #0b1d31;
+	--crrg-footer-bottom-bg: #2a2c2e;
+	--crrg-hero-overlay: #333638;
 	--crrg-hero-overlay-opacity: 0.7;
 	--crrg-on-primary: #ffffff;
-	--crrg-on-secondary: #ffffff;
+	--crrg-on-secondary: #111111;
 	--crrg-on-accent: #111111;
+	--crrg-on-hero-bg: #111111;
+	--crrg-on-banner: #111111;
+	--crrg-on-overlay: #ffffff;
+	--crrg-hero-fg: #111111;
+	--crrg-hero-accent: var(--crrg-secondary);
+	--crrg-header-accent: var(--crrg-link);
+	--crrg-banner-accent: var(--crrg-link);
+	--crrg-footer-accent: color-mix(in srgb, var(--crrg-accent) 78%, #fff);
+	/* Darker shade of the secondary colour for small text on light backgrounds. */
+	--crrg-secondary-text: color-mix(in srgb, var(--crrg-secondary) 78%, #000);
 
 	--crrg-font-body: "Source Sans 3", "Source Sans Pro", Arial, sans-serif;
 	--crrg-font-heading: Oswald, "Arial Narrow", Arial, sans-serif;
@@ -78,8 +91,8 @@
 	--crrg-border: color-mix(in srgb, var(--crrg-text) 14%, transparent);
 	--crrg-muted: color-mix(in srgb, var(--crrg-text) 70%, var(--crrg-surface));
 	--crrg-tint: color-mix(in srgb, var(--crrg-primary) 6%, var(--crrg-surface));
-	--crrg-shadow: 0 1px 2px rgba(10, 25, 45, 0.06), 0 6px 20px rgba(10, 25, 45, 0.07);
-	--crrg-shadow-lg: 0 10px 40px rgba(10, 25, 45, 0.16);
+	--crrg-shadow: 0 1px 2px rgba(30, 32, 34, 0.06), 0 6px 20px rgba(30, 32, 34, 0.07);
+	--crrg-shadow-lg: 0 10px 40px rgba(30, 32, 34, 0.16);
 	--crrg-transition: 0.2s ease;
 }
 
@@ -415,16 +428,17 @@ input[type="submit"]:hover,
 	color: var(--crrg-on-primary);
 }
 
+/* Outline button that takes the colour of the text around it. */
 .crrg-button--ghost {
 	border-color: currentColor;
 	background-color: transparent;
-	color: #ffffff;
+	color: inherit;
 }
 
 .crrg-button--ghost:hover {
-	border-color: #ffffff;
-	background-color: #ffffff;
-	color: var(--crrg-primary);
+	border-color: var(--crrg-primary);
+	background-color: var(--crrg-primary);
+	color: var(--crrg-on-primary);
 }
 
 .crrg-button--light {
@@ -433,8 +447,8 @@ input[type="submit"]:hover,
 }
 
 .crrg-button--light:hover {
-	background-color: var(--crrg-accent);
-	color: var(--crrg-on-accent);
+	background-color: var(--crrg-primary);
+	color: var(--crrg-on-primary);
 }
 
 .crrg-button--dark {
@@ -456,7 +470,7 @@ input[type="submit"]:hover,
 .wp-block-button__link.is-style-outline {
 	border-color: currentColor;
 	background-color: transparent;
-	color: var(--crrg-secondary);
+	color: var(--crrg-secondary-text);
 }
 
 .wp-block-button.is-style-outline > .wp-block-button__link:hover {
@@ -578,7 +592,9 @@ input[type="radio"] {
 }
 
 .topbar a:hover {
-	color: var(--crrg-accent);
+	color: inherit;
+	text-decoration: underline;
+	text-underline-offset: 0.25em;
 }
 
 .topbar__end {
@@ -603,6 +619,7 @@ input[type="radio"] {
 .site-header {
 	position: relative;
 	z-index: 100;
+	border-bottom: 1px solid color-mix(in srgb, var(--crrg-header-text) 10%, transparent);
 	background: var(--crrg-header-bg);
 	color: var(--crrg-header-text);
 	transition: background-color var(--crrg-transition), box-shadow var(--crrg-transition);
@@ -618,7 +635,7 @@ input[type="radio"] {
 }
 
 .site-header.is-stuck {
-	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
 }
 
 .site-header__inner,
@@ -648,6 +665,15 @@ input[type="radio"] {
 	display: block;
 	width: auto;
 	max-height: var(--crrg-logo-height);
+}
+
+/* The bundled CRRG badge is drawn for light backgrounds; give it a white
+ * plate when the header (or a transparent header over a dark hero) is dark. */
+.header-is-dark .site-logo--bundled .custom-logo-link,
+.hero-is-dark.has-transparent-header .site-header:not(.is-stuck) .site-logo--bundled .custom-logo-link {
+	padding: 0.35rem 0.6rem;
+	border-radius: var(--crrg-radius);
+	background: #ffffff;
 }
 
 .site-logo a {
@@ -746,7 +772,7 @@ input[type="radio"] {
 	left: 0.7rem;
 	height: 3px;
 	border-radius: 2px;
-	background: var(--crrg-accent);
+	background: var(--crrg-secondary);
 	transform: scaleX(0);
 	transform-origin: left;
 	transition: transform var(--crrg-transition);
@@ -941,8 +967,8 @@ input[type="radio"] {
 /* Stacked & centred: menu bar below */
 .site-header__nav {
 	display: none;
-	border-top: 1px solid color-mix(in srgb, var(--crrg-header-text) 14%, transparent);
-	background: color-mix(in srgb, var(--crrg-header-bg) 85%, #000);
+	border-top: 1px solid color-mix(in srgb, var(--crrg-header-text) 10%, transparent);
+	background: color-mix(in srgb, var(--crrg-header-bg) 95%, var(--crrg-header-text));
 }
 
 .site-header--centered .site-header__nav .main-navigation {
@@ -986,7 +1012,7 @@ input[type="radio"] {
 
 .header-widget__title {
 	display: block;
-	color: var(--crrg-accent);
+	color: var(--crrg-header-accent);
 	font-family: var(--crrg-font-heading);
 	font-size: 0.8rem;
 	letter-spacing: 0.08em;
@@ -1000,8 +1026,9 @@ input[type="radio"] {
 	top: 0;
 	right: 0;
 	left: 0;
+	border-bottom-color: transparent;
 	background: transparent;
-	color: #ffffff;
+	color: var(--crrg-hero-fg);
 }
 
 .has-transparent-header.has-topbar .site-header.site-header:not(.is-stuck) {
@@ -1009,7 +1036,8 @@ input[type="radio"] {
 }
 
 .has-transparent-header .site-header:not(.is-stuck) .site-header__nav {
-	background: rgba(0, 0, 0, 0.2);
+	border-top-color: color-mix(in srgb, currentColor 15%, transparent);
+	background: color-mix(in srgb, currentColor 6%, transparent);
 }
 
 .has-transparent-header.has-sticky-header .site-header.is-stuck {
@@ -1070,7 +1098,7 @@ input[type="radio"] {
 }
 
 .search-overlay__close {
-	color: #ffffff;
+	color: var(--crrg-header-text);
 }
 
 /* 9. Mobile navigation
@@ -1252,17 +1280,40 @@ body.mobile-nav-open {
 	overflow: hidden;
 }
 
+/* Radio-wave pattern
+ * The SVG is used as a mask so the waves take any colour: each container
+ * sets background-color on its pseudo-element (default: its text colour).
+--------------------------------------------- */
+.page-banner:not(.page-banner--has-image)::after,
+.crrg-hero--pattern::before,
+.crrg-cta::before,
+.widget.crrg-cta-box::before,
+.crrg-pattern-cta::before {
+	position: absolute;
+	z-index: -1;
+	inset: 0;
+	background-color: currentColor;
+	pointer-events: none;
+	content: "";
+	-webkit-mask: url("../images/waves.svg") right center / cover no-repeat;
+	mask: url("../images/waves.svg") right center / cover no-repeat;
+}
+
 /* 10. Title banner & breadcrumbs
 --------------------------------------------- */
 .page-banner {
 	position: relative;
 	padding-block: clamp(2.5rem, 6vw, 4rem);
-	background-color: var(--crrg-primary);
-	background-image: url("../images/waves.svg");
-	background-position: right center;
+	border-bottom: 1px solid color-mix(in srgb, var(--crrg-on-banner) 8%, transparent);
+	background-color: var(--crrg-banner-bg);
+	background-position: center;
 	background-size: cover;
-	color: var(--crrg-on-primary);
+	color: var(--crrg-on-banner);
 	isolation: isolate;
+}
+
+.page-banner:not(.page-banner--has-image)::after {
+	background-color: var(--crrg-banner-accent);
 }
 
 .page-banner--small {
@@ -1274,7 +1325,7 @@ body.mobile-nav-open {
 }
 
 .page-banner--has-image {
-	background-position: center;
+	color: var(--crrg-on-overlay);
 }
 
 .page-banner--has-image::before {
@@ -1308,7 +1359,7 @@ body.mobile-nav-open {
 .page-banner__title .archive-title-prefix {
 	display: block;
 	margin-bottom: 0.35rem;
-	color: var(--crrg-accent);
+	color: var(--crrg-banner-accent);
 	font-size: 0.4em;
 	letter-spacing: 0.12em;
 }
@@ -1352,7 +1403,7 @@ body.mobile-nav-open {
 
 .breadcrumbs__item:not(:last-child)::after {
 	margin-inline: 0.55em;
-	color: var(--crrg-accent);
+	color: var(--crrg-secondary);
 	content: "/";
 }
 
@@ -1592,8 +1643,15 @@ body.mobile-nav-open {
 	color: var(--crrg-secondary);
 }
 
-.page-banner .entry-meta .crrg-icon {
-	color: var(--crrg-accent);
+.page-banner .entry-meta .crrg-icon,
+.page-banner .breadcrumbs__item:not(:last-child)::after {
+	color: var(--crrg-banner-accent);
+}
+
+.page-banner--has-image .entry-meta .crrg-icon,
+.page-banner--has-image .breadcrumbs__item:not(:last-child)::after,
+.page-banner--has-image .archive-title-prefix {
+	color: inherit;
 }
 
 .post-thumbnail {
@@ -1801,7 +1859,7 @@ body.mobile-nav-open {
 
 .archive-header__title .archive-title-prefix {
 	display: block;
-	color: var(--crrg-secondary);
+	color: var(--crrg-secondary-text);
 	font-size: 0.45em;
 	letter-spacing: 0.12em;
 }
@@ -1881,7 +1939,7 @@ body.mobile-nav-open {
 	display: inline-flex;
 	align-items: center;
 	gap: 0.35rem;
-	color: var(--crrg-secondary);
+	color: var(--crrg-secondary-text);
 	font-family: var(--crrg-font-heading);
 	font-size: 0.9rem;
 	font-weight: 600;
@@ -2026,7 +2084,7 @@ body.mobile-nav-open {
 	align-items: center;
 	gap: 0.35rem;
 	margin-bottom: 0.25rem;
-	color: var(--crrg-secondary);
+	color: var(--crrg-secondary-text);
 	font-family: var(--crrg-font-heading);
 	font-size: 0.8rem;
 	letter-spacing: 0.08em;
@@ -2255,7 +2313,7 @@ body.mobile-nav-open {
 
 .crrg-repeaters__offset {
 	margin-inline-start: 0.1em;
-	color: var(--crrg-secondary);
+	color: var(--crrg-secondary-text);
 }
 
 .crrg-repeaters__name {
@@ -2278,7 +2336,7 @@ body.mobile-nav-open {
 	display: inline-flex;
 	align-items: center;
 	gap: 0.35rem;
-	color: var(--crrg-secondary);
+	color: var(--crrg-secondary-text);
 	font-family: var(--crrg-font-heading);
 	font-size: 0.8rem;
 	letter-spacing: 0.06em;
@@ -2352,9 +2410,14 @@ body.mobile-nav-open {
 .widget.crrg-cta-box {
 	position: relative;
 	overflow: hidden;
-	background-image: url("../images/waves.svg");
-	background-position: right bottom;
-	background-size: 260%;
+	isolation: isolate;
+}
+
+.widget.crrg-cta-box::before {
+	-webkit-mask-position: right bottom;
+	mask-position: right bottom;
+	-webkit-mask-size: 260%;
+	mask-size: 260%;
 }
 
 .widget.crrg-cta-box--primary {
@@ -2495,15 +2558,18 @@ body.mobile-nav-open {
 	background-color: var(--crrg-hero-overlay);
 	background-position: center;
 	background-size: cover;
-	color: #ffffff;
+	color: var(--crrg-on-overlay);
 	isolation: isolate;
 }
 
+/* Without an image the hero uses its own background colour and the radio-wave pattern. */
 .crrg-hero--pattern {
-	background-color: var(--crrg-primary);
-	background-image: url("../images/waves.svg");
-	background-position: right center;
-	background-size: cover;
+	background-color: var(--crrg-hero-bg);
+	color: var(--crrg-on-hero-bg);
+}
+
+.crrg-hero--pattern::before {
+	background-color: var(--crrg-hero-accent);
 }
 
 .crrg-hero--small {
@@ -2537,8 +2603,7 @@ body.mobile-nav-open {
 }
 
 .crrg-hero--pattern .crrg-hero__overlay {
-	background: linear-gradient(100deg, var(--crrg-primary) 0%, transparent 75%);
-	opacity: 0.85;
+	display: none;
 }
 
 .crrg-hero__inner {
@@ -2556,9 +2621,12 @@ body.mobile-nav-open {
 
 .crrg-hero__title {
 	margin-bottom: 1.25rem;
-	color: #ffffff;
+	color: inherit;
 	font-size: clamp(2.4rem, 1.5rem + 4vw, 4.5rem);
 	line-height: 1.05;
+}
+
+.crrg-hero--has-image .crrg-hero__title {
 	text-shadow: 0 2px 30px rgba(0, 0, 0, 0.25);
 }
 
@@ -2568,7 +2636,7 @@ body.mobile-nav-open {
 	height: 5px;
 	margin-bottom: 1.5rem;
 	border-radius: 3px;
-	background: var(--crrg-accent);
+	background: var(--crrg-hero-accent);
 	content: "";
 }
 
@@ -2579,7 +2647,7 @@ body.mobile-nav-open {
 .crrg-hero__text {
 	max-width: 620px;
 	margin-bottom: 2rem;
-	opacity: 0.92;
+	opacity: 0.88;
 	font-size: clamp(1.05rem, 1rem + 0.4vw, 1.3rem);
 }
 
@@ -2641,8 +2709,8 @@ body.mobile-nav-open {
 	width: 3.25rem;
 	height: 3.25rem;
 	border-radius: 50%;
-	background: var(--crrg-secondary);
-	color: var(--crrg-on-secondary);
+	background: color-mix(in srgb, var(--crrg-secondary) 14%, var(--crrg-surface));
+	color: var(--crrg-secondary-text);
 	flex-shrink: 0;
 }
 
@@ -2739,7 +2807,7 @@ body.mobile-nav-open {
 	align-items: center;
 	gap: 0.35rem;
 	margin-top: auto;
-	color: var(--crrg-secondary);
+	color: var(--crrg-secondary-text);
 	font-family: var(--crrg-font-heading);
 	font-size: 0.9rem;
 	font-weight: 600;
@@ -2781,10 +2849,8 @@ body.mobile-nav-open {
 	position: relative;
 	padding-block: clamp(3rem, 6vw, 4.5rem);
 	background-color: var(--crrg-secondary);
-	background-image: url("../images/waves.svg");
-	background-position: right center;
-	background-size: cover;
 	color: var(--crrg-on-secondary);
+	isolation: isolate;
 }
 
 .crrg-cta__inner {
@@ -2846,12 +2912,12 @@ body.mobile-nav-open {
 }
 
 .site-footer a:hover {
-	color: var(--crrg-accent);
+	color: var(--crrg-footer-accent);
 }
 
 .footer-widgets {
 	padding-block: clamp(3rem, 6vw, 4.5rem);
-	border-top: 4px solid var(--crrg-accent);
+	border-top: 4px solid var(--crrg-secondary);
 }
 
 .footer-widgets__grid {
@@ -2891,7 +2957,7 @@ body.mobile-nav-open {
 .site-footer .crrg-repeaters__offset,
 .site-footer .crrg-contact__item .crrg-icon,
 .site-footer .widget-more-link {
-	color: var(--crrg-accent);
+	color: var(--crrg-footer-accent);
 }
 
 .site-footer input,
@@ -3391,9 +3457,8 @@ ul.is-style-crrg-checklist {
 
 /* Pattern helpers */
 .crrg-pattern-cta {
-	background-image: url("../images/waves.svg");
-	background-position: right center;
-	background-size: cover;
+	position: relative;
+	isolation: isolate;
 }
 
 /* Editor colour classes */
@@ -3580,6 +3645,11 @@ ul.is-style-crrg-checklist {
 }
 
 @media (max-width: 600px) {
+	.site-logo img,
+	.custom-logo {
+		max-height: min(var(--crrg-logo-height), 60px);
+	}
+
 	/* The WordPress admin bar scrolls away on small screens. */
 	.admin-bar.has-sticky-header .site-header {
 		top: 0;

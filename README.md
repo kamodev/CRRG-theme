@@ -34,11 +34,24 @@ Hero (heading, text, background image, height, alignment, two buttons) · Info b
 
 ### Customizer → Colors
 
-Pick a preset (**Colorado Navy**, Signal Orange, Tactical Olive, Front Range Forest, Clean Light) to fill every colour at once, then fine-tune 18 individual colours: primary, secondary, accent, page and card backgrounds, text, headings, links, top bar, header, footer and hero overlay (with opacity). Text on brand colours switches between black and white automatically for contrast. The block editor colour palette follows these colours.
+The palette comes from the CRRG logo: orange `#ea6d4b`, charcoal `#333638` and white. Link text uses a darker orange (`#b84a2b`) so it stays readable on white.
+
+Pick a preset to fill every colour at once:
+
+| Preset | Look |
+| --- | --- |
+| **CRRG Light** (default) | White header with charcoal text, charcoal top bar, light hero and title banner, orange buttons, charcoal footer |
+| **CRRG Classic** | White header, charcoal hero and title banner |
+| **CRRG Dark** | Charcoal top bar, header and hero (the badge logo gets a white plate) |
+| **CRRG Orange** | Orange top bar, warm light hero and banner |
+| **Black & White** | Everything light, including the footer; orange only on buttons |
+| **Orange & Blue** | Blue top bar, links, title banner and footer, with orange buttons |
+
+Then fine-tune 20 individual colours: primary, secondary, accent, page and card backgrounds, text, headings, links, top bar, header, hero background, title banner background, image overlay (with opacity) and footer. Text on buttons, the hero and the banner switches between black and white automatically for contrast, and accent text uses a lighter or darker orange depending on the background. The block editor colour palette follows these colours.
 
 ### Site Identity
 
-Logo, logo maximum height, show/hide title and tagline, and an optional **call sign** badge beside the title.
+Logo, logo maximum height, show/hide title and tagline, and an optional **call sign** badge beside the title. Until you choose a logo, the theme shows the bundled CRRG badge (`assets/images/crrg-logo.png`). Turn it off with **Show the CRRG badge logo when no logo is selected**. The site title is always shown when there is no logo.
 
 ## Layouts
 

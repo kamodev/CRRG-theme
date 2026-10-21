@@ -3,7 +3,7 @@ Contributors: crrg
 Requires at least: 6.3
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 0.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, news, two-columns, three-columns, left-sidebar, right-sidebar, grid-layout, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, block-patterns, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
@@ -25,8 +25,9 @@ layout, all managed in Appearance > Customize:
   sidebar, full width) chosen per content type, per post or page, or with a
   page template.
 * Fourteen widget areas and five menu locations.
-* Colour presets plus 18 individual colours, Google or system fonts, and
-  container, sidebar, corner and logo sizes.
+* Colours from the CRRG logo (orange, charcoal, white) with six presets
+  and 20 individual colours, Google or system fonts, and container,
+  sidebar, corner and logo sizes.
 * Club widgets (repeaters, net schedule, contact, call to action, social
   icons, recent posts) and block patterns (repeater table, nets,
   membership, FAQ and more).
@@ -53,8 +54,13 @@ Customize > CRRG Theme Options > Typography > Font source > System fonts only.
 
 == Changelog ==
 
-= 1.0.0 =
-* Initial release.
+= 0.1.1 =
+* New colour scheme taken from the CRRG logo: orange, charcoal and white.
+* White header with charcoal text; lighter hero, title banner and info bar.
+* Yellow removed. Six logo-based colour presets, including Orange & Blue.
+* Bundled CRRG badge logo, shown until a custom logo is selected.
+* New colour options for the hero and title banner backgrounds; text on
+  them switches between black and white automatically.
 
 == Copyright ==
 
@@ -75,6 +81,8 @@ GNU General Public License for more details.
 
 * Icons and the radio-wave background (assets/images/waves.svg) were drawn
   for this theme and are licensed under the GPLv2 or later, like the theme.
+* assets/images/crrg-logo.png is the Castle Rock Repeater Group logo,
+  supplied by the club for use in this theme.
 * screenshot.png shows the theme with generated placeholder art, GPLv2 or later.
 * Google Fonts (optional, loaded from fonts.googleapis.com when enabled) are
   licensed under the SIL Open Font License 1.1.

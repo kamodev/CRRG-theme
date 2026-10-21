@@ -31,6 +31,8 @@ function crrg_color_variables() {
 		'topbar_text_color'      => '--crrg-topbar-text',
 		'header_bg_color'        => '--crrg-header-bg',
 		'header_text_color'      => '--crrg-header-text',
+		'hero_bg_color'          => '--crrg-hero-bg',
+		'banner_bg_color'        => '--crrg-banner-bg',
 		'footer_bg_color'        => '--crrg-footer-bg',
 		'footer_text_color'      => '--crrg-footer-text',
 		'footer_heading_color'   => '--crrg-footer-heading',
@@ -67,6 +69,16 @@ function crrg_contrast_color( $hex ) {
 }
 
 /**
+ * Whether a colour option holds a dark colour (one that needs light text).
+ *
+ * @param string $option Colour option key.
+ * @return bool
+ */
+function crrg_is_dark( $option ) {
+	return '#ffffff' === crrg_contrast_color( crrg_get_option( $option ) );
+}
+
+/**
  * Build the :root custom property block.
  *
  * @return string
@@ -85,6 +97,21 @@ function crrg_css_variables() {
 	$vars['--crrg-on-primary']   = crrg_contrast_color( crrg_get_option( 'primary_color' ) );
 	$vars['--crrg-on-secondary'] = crrg_contrast_color( crrg_get_option( 'secondary_color' ) );
 	$vars['--crrg-on-accent']    = crrg_contrast_color( crrg_get_option( 'accent_color' ) );
+	$vars['--crrg-on-hero-bg']   = crrg_contrast_color( crrg_get_option( 'hero_bg_color' ) );
+	$vars['--crrg-on-banner']    = crrg_contrast_color( crrg_get_option( 'banner_bg_color' ) );
+	$vars['--crrg-on-overlay']   = crrg_contrast_color( crrg_get_option( 'hero_overlay_color' ) );
+
+	// Text over the hero: the overlay decides when there is an image.
+	$vars['--crrg-hero-fg'] = crrg_get_option( 'hero_image' ) ? $vars['--crrg-on-overlay'] : $vars['--crrg-on-hero-bg'];
+
+	// Accent text needs a lighter orange on dark backgrounds and the darker
+	// link colour on light ones to stay readable.
+	$on_dark = 'color-mix(in srgb, var(--crrg-accent) 78%, #fff)';
+
+	$vars['--crrg-header-accent'] = crrg_is_dark( 'header_bg_color' ) ? $on_dark : 'var(--crrg-link)';
+	$vars['--crrg-banner-accent'] = crrg_is_dark( 'banner_bg_color' ) ? $on_dark : 'var(--crrg-link)';
+	$vars['--crrg-footer-accent'] = crrg_is_dark( 'footer_bg_color' ) ? $on_dark : 'var(--crrg-link)';
+	$vars['--crrg-hero-accent']   = crrg_is_dark( 'hero_bg_color' ) ? $on_dark : 'var(--crrg-secondary)';
 
 	$vars['--crrg-hero-overlay-opacity'] = max( 0, min( 100, (int) crrg_get_option( 'hero_overlay_opacity' ) ) ) / 100;
 

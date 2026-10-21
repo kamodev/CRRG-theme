@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'CRRG_VERSION', '1.0.0' );
+define( 'CRRG_VERSION', '0.1.1' );
 define( 'CRRG_DIR', get_template_directory() );
 define( 'CRRG_URI', get_template_directory_uri() );
 

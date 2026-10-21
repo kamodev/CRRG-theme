@@ -16,10 +16,22 @@ function crrg_site_branding() {
 	$callsign     = crrg_get_option( 'header_callsign' );
 	$description  = get_bloginfo( 'description', 'display' );
 	$title_tag    = ( is_front_page() && is_home() ) ? 'h1' : 'p';
+	$bundled      = ! has_custom_logo() && crrg_get_option( 'bundled_logo' );
+
+	// Without any logo the title is the only branding, so always show it.
+	if ( ! has_custom_logo() && ! $bundled ) {
+		$show_title = true;
+	}
 	?>
 	<div class="site-branding">
 		<?php if ( has_custom_logo() ) : ?>
 			<div class="site-logo"><?php the_custom_logo(); ?></div>
+		<?php elseif ( $bundled ) : ?>
+			<div class="site-logo site-logo--bundled">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="custom-logo-link" rel="home">
+					<img class="custom-logo" src="<?php echo esc_url( CRRG_URI . '/assets/images/crrg-logo.png' ); ?>" width="789" height="411" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" decoding="async">
+				</a>
+			</div>
 		<?php endif; ?>
 
 		<div class="site-branding__text">

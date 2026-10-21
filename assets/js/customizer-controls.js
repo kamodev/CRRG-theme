@@ -10,7 +10,8 @@
 
 	api.bind( 'ready', function () {
 		var presets = window.crrgPresets || {};
-		var colorSettings = Object.keys( presets.colorado || {} );
+		var firstPreset = Object.keys( presets )[ 0 ];
+		var colorSettings = firstPreset ? Object.keys( presets[ firstPreset ] ) : [];
 
 		// Choosing a preset fills every colour.
 		api( 'color_preset', function ( preset ) {

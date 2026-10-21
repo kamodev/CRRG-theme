@@ -38,19 +38,53 @@
 		topbar_text_color: [ '--crrg-topbar-text' ],
 		header_bg_color: [ '--crrg-header-bg' ],
 		header_text_color: [ '--crrg-header-text' ],
+		hero_bg_color: [ '--crrg-hero-bg', '--crrg-on-hero-bg' ],
+		banner_bg_color: [ '--crrg-banner-bg', '--crrg-on-banner' ],
 		footer_bg_color: [ '--crrg-footer-bg' ],
 		footer_text_color: [ '--crrg-footer-text' ],
 		footer_heading_color: [ '--crrg-footer-heading' ],
 		footer_bottom_bg_color: [ '--crrg-footer-bottom-bg' ],
-		hero_overlay_color: [ '--crrg-hero-overlay' ]
+		hero_overlay_color: [ '--crrg-hero-overlay', '--crrg-on-overlay' ]
 	};
+
+	// Accent text on a background: lighter orange on dark, link colour on light
+	// (mirrors crrg_css_variables() in inc/customizer/css.php).
+	var accents = {
+		header_bg_color: [ '--crrg-header-accent', 'var(--crrg-link)' ],
+		banner_bg_color: [ '--crrg-banner-accent', 'var(--crrg-link)' ],
+		footer_bg_color: [ '--crrg-footer-accent', 'var(--crrg-link)' ],
+		hero_bg_color: [ '--crrg-hero-accent', 'var(--crrg-secondary)' ]
+	};
+	var onDark = 'color-mix(in srgb, var(--crrg-accent) 78%, #fff)';
+
+	function heroForeground() {
+		var hasImage = !! document.querySelector( '.crrg-hero--has-image' );
+		var source = hasImage ? 'hero_overlay_color' : 'hero_bg_color';
+		var dark = '#ffffff' === contrast( api( source ).get() );
+
+		root.style.setProperty( '--crrg-hero-fg', contrast( api( source ).get() ) );
+		document.body.classList.toggle( 'hero-is-dark', dark );
+		document.body.classList.toggle( 'hero-is-light', ! dark );
+	}
 
 	Object.keys( colors ).forEach( function ( setting ) {
 		api( setting, function ( value ) {
 			value.bind( function ( to ) {
+				var dark = '#ffffff' === contrast( to );
+
 				root.style.setProperty( colors[ setting ][ 0 ], to );
 				if ( colors[ setting ][ 1 ] ) {
 					root.style.setProperty( colors[ setting ][ 1 ], contrast( to ) );
+				}
+				if ( accents[ setting ] ) {
+					root.style.setProperty( accents[ setting ][ 0 ], dark ? onDark : accents[ setting ][ 1 ] );
+				}
+				if ( 'header_bg_color' === setting ) {
+					document.body.classList.toggle( 'header-is-dark', dark );
+					document.body.classList.toggle( 'header-is-light', ! dark );
+				}
+				if ( 'hero_bg_color' === setting || 'hero_overlay_color' === setting ) {
+					heroForeground();
 				}
 			} );
 		} );

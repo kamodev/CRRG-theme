@@ -210,6 +210,17 @@ add_action( 'customize_register', 'crrg_customize_register' );
 function crrg_customize_site_identity( $wp_customize ) {
 	crrg_add_option(
 		$wp_customize,
+		'bundled_logo',
+		array(
+			'label'       => __( 'Show the CRRG badge logo when no logo is selected', 'crrg' ),
+			'description' => __( 'The site title is always shown when there is no logo.', 'crrg' ),
+			'section'     => 'title_tagline',
+			'type'        => 'checkbox',
+			'priority'    => 8,
+		)
+	);
+	crrg_add_option(
+		$wp_customize,
 		'logo_max_height',
 		array(
 			'label'       => __( 'Logo maximum height (px)', 'crrg' ),
@@ -264,7 +275,7 @@ function crrg_customize_site_identity( $wp_customize ) {
  */
 function crrg_customize_colors( $wp_customize ) {
 	$wp_customize->get_section( 'colors' )->title       = __( 'Colors', 'crrg' );
-	$wp_customize->get_section( 'colors' )->description = __( 'Pick a preset to fill every colour at once, then fine-tune any individual colour below.', 'crrg' );
+	$wp_customize->get_section( 'colors' )->description = __( 'Pick a preset to fill every colour at once, then fine-tune any individual colour below. Text on the hero, banner and buttons switches between black and white automatically for contrast.', 'crrg' );
 
 	$presets = array( 'custom' => __( 'Custom', 'crrg' ) ) + wp_list_pluck( crrg_color_presets(), 'label' );
 
@@ -277,14 +288,17 @@ function crrg_customize_colors( $wp_customize ) {
 			'type'     => 'select',
 			'choices'  => $presets,
 			'priority' => 1,
-		)
+		),
+		// The preset only fills the colour settings (customizer-controls.js),
+		// which preview live, so the preset itself never needs a refresh.
+		array( 'transport' => 'postMessage' )
 	);
 
 	$groups = array(
-		'heading_brand'          => __( 'Brand', 'crrg' ),
-		'primary_color'          => __( 'Primary (header, headings accents)', 'crrg' ),
-		'secondary_color'        => __( 'Secondary (buttons, calls to action)', 'crrg' ),
-		'accent_color'           => __( 'Accent (highlights, badges, underlines)', 'crrg' ),
+		'heading_brand'          => __( 'Brand (from the CRRG logo)', 'crrg' ),
+		'primary_color'          => __( 'Primary: dark details (icons, tables, search button)', 'crrg' ),
+		'secondary_color'        => __( 'Secondary: buttons and call-to-action band', 'crrg' ),
+		'accent_color'           => __( 'Accent: underlines, badges, highlights', 'crrg' ),
 		'heading_content'        => __( 'Content', 'crrg' ),
 		'body_bg_color'          => __( 'Page background', 'crrg' ),
 		'surface_color'          => __( 'Card / content background', 'crrg' ),
@@ -297,13 +311,15 @@ function crrg_customize_colors( $wp_customize ) {
 		'topbar_text_color'      => __( 'Top bar text', 'crrg' ),
 		'header_bg_color'        => __( 'Header background', 'crrg' ),
 		'header_text_color'      => __( 'Header text & menu links', 'crrg' ),
+		'heading_hero'           => __( 'Hero & title banner', 'crrg' ),
+		'hero_bg_color'          => __( 'Hero background (when no image is set)', 'crrg' ),
+		'banner_bg_color'        => __( 'Title banner background', 'crrg' ),
+		'hero_overlay_color'     => __( 'Overlay on hero and banner images', 'crrg' ),
 		'heading_footer'         => __( 'Footer', 'crrg' ),
 		'footer_bg_color'        => __( 'Footer background', 'crrg' ),
 		'footer_text_color'      => __( 'Footer text', 'crrg' ),
 		'footer_heading_color'   => __( 'Footer headings', 'crrg' ),
 		'footer_bottom_bg_color' => __( 'Footer bottom bar background', 'crrg' ),
-		'heading_hero'           => __( 'Hero', 'crrg' ),
-		'hero_overlay_color'     => __( 'Hero overlay colour', 'crrg' ),
 	);
 
 	$priority = 10;
@@ -339,7 +355,7 @@ function crrg_customize_colors( $wp_customize ) {
 		$wp_customize,
 		'hero_overlay_opacity',
 		array(
-			'label'       => __( 'Hero overlay opacity (%)', 'crrg' ),
+			'label'       => __( 'Overlay opacity (%)', 'crrg' ),
 			'section'     => 'colors',
 			'type'        => 'range',
 			'input_attrs' => array(
@@ -347,7 +363,7 @@ function crrg_customize_colors( $wp_customize ) {
 				'max'  => 100,
 				'step' => 5,
 			),
-			'priority'    => 100,
+			'priority'    => 51,
 		),
 		array( 'transport' => 'postMessage' )
 	);
