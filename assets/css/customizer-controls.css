@@ -1,0 +1,61 @@
+/**
+ * Customizer control styles.
+ */
+.crrg-customize-heading {
+	margin: 1.25em -12px 0;
+	padding: 10px 12px;
+	border-top: 1px solid #dcdcde;
+	border-bottom: 1px solid #dcdcde;
+	background: #f6f7f7;
+	color: #1d2327;
+	font-size: 13px;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.customize-control-crrg-heading:first-child .crrg-customize-heading {
+	margin-top: 0;
+}
+
+.crrg-sortable {
+	margin: 8px 0 0;
+}
+
+.crrg-sortable__item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0 0 6px;
+	padding: 8px 10px;
+	border: 1px solid #dcdcde;
+	border-radius: 3px;
+	background: #fff;
+}
+
+.crrg-sortable__item .dashicons-menu {
+	color: #8c8f94;
+	cursor: move;
+}
+
+.crrg-sortable__label {
+	flex: 1;
+}
+
+.crrg-sortable__buttons {
+	display: flex;
+	gap: 2px;
+}
+
+.crrg-sortable__buttons .button-link {
+	color: #50575e;
+	cursor: pointer;
+}
+
+.crrg-sortable__buttons .button-link:hover,
+.crrg-sortable__buttons .button-link:focus {
+	color: #2271b1;
+}
+
+.crrg-sortable__item.ui-sortable-helper {
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
