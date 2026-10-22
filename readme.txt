@@ -3,7 +3,7 @@ Contributors: crrg
 Requires at least: 6.3
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.1.1
+Stable tag: 0.1.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, news, two-columns, three-columns, left-sidebar, right-sidebar, grid-layout, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, block-patterns, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
@@ -25,9 +25,12 @@ layout, all managed in Appearance > Customize:
   sidebar, full width) chosen per content type, per post or page, or with a
   page template.
 * Fourteen widget areas and five menu locations.
+* Full-screen or fixed-width layout, with sliders for content width,
+  reading column, side padding, sidebar, corner radius and logo size.
 * Colours from the CRRG logo (orange, charcoal, white) with six presets
-  and 20 individual colours, Google or system fonts, and container,
-  sidebar, corner and logo sizes.
+  and 20 individual colours, and Google or system fonts.
+* Content boxes with a shadow, a border, no border or shadow, or no box
+  at all.
 * Club widgets (repeaters, net schedule, contact, call to action, social
   icons, recent posts) and block patterns (repeater table, nets,
   membership, FAQ and more).
@@ -53,6 +56,19 @@ layout templates under Page Attributes / Template.
 Customize > CRRG Theme Options > Typography > Font source > System fonts only.
 
 == Changelog ==
+
+= 0.1.5 =
+* Full-screen layout by default: content fills the browser window. Choose
+  "Fixed maximum width" to cap it with a slider instead.
+* Pages without a sidebar use the full width by default, with an optional
+  narrower reading column.
+* New "No box" style removes the background, border and shadow around
+  posts, pages, widgets and cards. "White box, no border or shadow" is
+  still available.
+* Size options (content, reading column, side padding, sidebar, corner
+  radius, logo, font size, overlay opacity, mobile menu breakpoint) are
+  now sliders with a number box and a reset link.
+* Releases are built and published by a GitHub Actions workflow.
 
 = 0.1.1 =
 * New colour scheme taken from the CRRG logo: orange, charcoal and white.

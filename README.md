@@ -21,7 +21,7 @@ Requires WordPress 6.3+ and PHP 7.4+.
 | **Typography** | Font source (Google Fonts or system fonts only), body font, heading/menu font (16 choices), base size, heading weight, uppercase headings, uppercase menus and buttons |
 | **Top Bar** | Show/hide, text (basic HTML, e.g. net times), Top Bar menu, social icons |
 | **Header** | Layout: *logo left / menu right*, *logo centred / menu below*, *logo + header widget area / menu bar below*. Sticky header, transparent header over the front-page hero, search button, social icons, mobile menu style (slide-in or drop-down), **mobile menu breakpoint**, header button text/link/new tab |
-| **Layout & Sidebars** | Wide or boxed site, content width, sidebar width, default layout for the blog, archives, search, single posts and pages, sticky sidebars, card style (shadow / bordered / flat), corner radius |
+| **Layout & Sidebars** | **Site width**: *Full screen* (default, content fills the window) or *Fixed maximum width* with a slider (960–1920 px). Pages without a sidebar: full width or a narrower reading column (slider). Side padding, sidebar width, wide or boxed frame, default layout for the blog, archives, search, single posts and pages, sticky sidebars, **content boxes** (*white box with shadow*, *with border*, *no border or shadow*, or *no box*: no background, border or shadow), corner radius |
 | **Page Title Banner** | Show/hide, height, alignment, default background image, featured image as background, breadcrumbs (uses Yoast, Rank Math or SEOPress when active) |
 | **Blog & Archives** | List / classic / grid style, grid columns, excerpt length, "Read more" text, featured images, date/author/categories/comment-count toggles, numbered or older/newer pagination |
 | **Single Posts** | Featured image, meta, tags, author box, previous/next links, related posts and how many |
@@ -31,6 +31,8 @@ Requires WordPress 6.3+ and PHP 7.4+.
 ### Customizer → Front Page Sections
 
 Hero (heading, text, background image, height, alignment, two buttons) · Info bar (four facts with icons) · Feature cards (heading, intro, 2–4 columns, four cards with icon/title/text/link) · Page content · Latest posts (title, count, category) · Call to action band · **Section Order** (drag and drop, including the Front Page Top/Bottom widget areas).
+
+Size options are sliders with a number box beside them for exact values and a **Reset** link to the default.
 
 ### Customizer → Colors
 
@@ -89,6 +91,15 @@ Patterns (inserter → **CRRG**): Repeater table, Net schedule, Three feature ca
 Block styles: *Card* (Group), *Frequency table* (Table), *Checklist* (List), *Accent underline* (Heading).
 
 The repeater and net details in the patterns, widgets and starter content come from the club's public listings. Check them against the current crrg.club pages before publishing.
+
+## Releases
+
+Releases are published by GitHub Actions (`.github/workflows/release.yml`). To publish a release:
+
+1. Set the new version in `style.css` (`Version:`), `functions.php` (`CRRG_VERSION`) and `readme.txt` (`Stable tag:` and a changelog entry).
+2. Merge to `main`, then push a matching tag, e.g. `git tag v0.1.5 && git push origin v0.1.5`.
+
+The workflow checks that the tag matches the theme version, builds `crrg-<version>.zip` (with `crrg/` as its folder, excluding development files), and creates the GitHub release with the changelog entry as notes and the ZIP attached. It can also be started from the Actions tab for an existing tag.
 
 ## Development
 

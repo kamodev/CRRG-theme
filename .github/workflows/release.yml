@@ -1,0 +1,66 @@
+# Publishes a GitHub release with the installable theme ZIP when a version
+# tag (for example v0.1.5) is pushed. The tag must match the Version in
+# style.css. It can also be run by hand from the Actions tab for an
+# existing tag.
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing tag to release, for example v0.1.5
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      TAG: ${{ github.event.inputs.tag || github.ref_name }}
+    steps:
+      - name: Check out the tagged commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.tag || github.ref }}
+
+      - name: Check the tag matches the theme version
+        run: |
+          version=$(sed -n 's/^Version:[[:space:]]*//p' style.css | head -n 1 | tr -d '\r')
+          if [ "v${version}" != "${TAG}" ]; then
+            echo "::error::Tag ${TAG} does not match Version ${version} in style.css"
+            exit 1
+          fi
+          echo "VERSION=${version}" >> "$GITHUB_ENV"
+
+      - name: Build the theme ZIP
+        # .gitattributes keeps development files out of the archive.
+        run: git archive --format=zip --prefix=crrg/ -o "crrg-${VERSION}.zip" HEAD
+
+      - name: Write release notes from the readme.txt changelog
+        run: |
+          awk -v heading="= ${VERSION} =" '
+            $0 == heading { found = 1; next }
+            found && /^(= |== )/ { exit }
+            found { print }
+          ' readme.txt > notes.md
+          printf '\n**Install:** download `crrg-%s.zip` below, then in WordPress go to Appearance > Themes > Add New Theme > Upload Theme.\n' "${VERSION}" >> notes.md
+          cat notes.md
+
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "${TAG}" > /dev/null 2>&1; then
+            gh release upload "${TAG}" "crrg-${VERSION}.zip" --clobber
+            gh release edit "${TAG}" --notes-file notes.md
+          else
+            gh release create "${TAG}" "crrg-${VERSION}.zip" \
+              --title "CRRG ${TAG}" \
+              --notes-file notes.md \
+              --verify-tag
+          fi

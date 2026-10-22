@@ -41,6 +41,37 @@
 			} );
 		} );
 
+		// Sliders: keep the number box in step with the slider (which holds
+		// the setting link) and offer a reset to the default value.
+		$( document ).on( 'input change', '.crrg-range__slider', function () {
+			$( this ).siblings( '.crrg-range__number' ).val( this.value );
+		} );
+
+		$( document ).on( 'input change', '.crrg-range__number', function ( e ) {
+			var $number = $( this );
+			var $slider = $number.siblings( '.crrg-range__slider' );
+			var min = parseFloat( $slider.attr( 'min' ) );
+			var max = parseFloat( $slider.attr( 'max' ) );
+			var value = parseFloat( $number.val() );
+
+			if ( isNaN( value ) ) {
+				return;
+			}
+			// Only clamp once the user has finished typing.
+			if ( 'change' === e.type ) {
+				value = Math.min( max, Math.max( min, value ) );
+				$number.val( value );
+			}
+			if ( value >= min && value <= max ) {
+				$slider.val( value ).trigger( 'change' );
+			}
+		} );
+
+		$( document ).on( 'click', '.crrg-range__reset', function () {
+			var $slider = $( this ).siblings( '.crrg-range__slider' );
+			$slider.val( $( this ).data( 'default' ) ).trigger( 'change' );
+		} );
+
 		// Sortable lists.
 		$( '.crrg-sortable' ).each( function () {
 			var $list = $( this );
