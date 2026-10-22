@@ -165,6 +165,10 @@ function crrg_resolve_url( $url ) {
  * Header call to action button.
  */
 function crrg_header_cta() {
+	if ( ! crrg_get_option( 'header_cta_enable' ) ) {
+		return;
+	}
+
 	crrg_button(
 		crrg_get_option( 'header_cta_text' ),
 		crrg_get_option( 'header_cta_url' ),

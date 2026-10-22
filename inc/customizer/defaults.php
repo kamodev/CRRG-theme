@@ -165,11 +165,14 @@ function crrg_option_defaults() {
 			'header_callsign'          => '',
 			'logo_max_height'          => 88,
 			'bundled_logo'             => true,
+			'header_cta_enable'        => true,
 			'header_cta_text'          => __( 'Join the Club', 'crrg' ),
 			'header_cta_url'           => '/membership/',
 			'header_cta_new_tab'       => false,
 			'mobile_menu_style'        => 'offcanvas',
-			'mobile_breakpoint'        => 1200,
+			'mobile_breakpoint'        => 1280,
+			'header_padding'           => 8,
+			'content_top_space'        => 28,
 
 			// Top bar.
 			'topbar_enable'            => true,

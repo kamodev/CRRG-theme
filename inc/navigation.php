@@ -105,7 +105,7 @@ function crrg_mobile_menu() {
 			);
 			?>
 		</nav>
-		<?php if ( crrg_get_option( 'header_cta_url' ) && crrg_get_option( 'header_cta_text' ) ) : ?>
+		<?php if ( crrg_get_option( 'header_cta_enable' ) && crrg_get_option( 'header_cta_url' ) && crrg_get_option( 'header_cta_text' ) ) : ?>
 			<div class="mobile-navigation__cta"><?php crrg_header_cta(); ?></div>
 		<?php endif; ?>
 		<div class="mobile-navigation__social"><?php crrg_social_links( 'mobile' ); ?></div>

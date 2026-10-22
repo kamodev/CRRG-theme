@@ -85,7 +85,7 @@
 	--crrg-gutter: var(--crrg-gutter-mobile, 1.25rem);
 	--crrg-gap: 2.5rem;
 	--crrg-card-pad: clamp(1.25rem, 3vw, 2.25rem);
-	--crrg-header-min: 84px; /* Minimum height of the logo row. */
+	--crrg-header-min: 72px; /* Minimum height of the logo row. */
 	--crrg-header-height: 84px; /* Measured full header height, updated by theme.js. */
 
 	--crrg-border: color-mix(in srgb, var(--crrg-text) 14%, transparent);
@@ -644,7 +644,7 @@ input[type="radio"] {
 	align-items: center;
 	gap: 1rem 1.5rem;
 	min-height: var(--crrg-header-min);
-	padding-block: 0.75rem;
+	padding-block: var(--crrg-header-padding, 0.5rem);
 }
 
 .site-header a {
@@ -687,6 +687,12 @@ input[type="radio"] {
 	justify-content: start;
 	column-gap: 0.6rem;
 	min-width: 0;
+}
+
+/* With only screen-reader text inside (title and tagline hidden), take the
+ * text box out of the flex row so it adds no gap beside the logo. */
+.site-branding__text:not(:has(> :not(.screen-reader-text, [hidden]))) {
+	position: absolute;
 }
 
 .site-title {
@@ -903,6 +909,38 @@ input[type="radio"] {
 
 .main-navigation + .header-actions {
 	margin-inline-start: 0;
+}
+
+/* Logo right, menu left. The logo stays first in the markup for screen
+ * readers; order moves it to the end. */
+.site-header--right .site-branding {
+	order: 3;
+}
+
+.site-header--right .main-navigation {
+	order: 1;
+	margin-inline-start: -0.55rem;
+}
+
+.site-header--right .primary-menu {
+	justify-content: flex-start;
+}
+
+.site-header--right .header-actions,
+.site-header--right .main-navigation + .header-actions {
+	order: 2;
+	margin-inline-start: auto;
+}
+
+/* The slide-in mobile menu opens from the side the menu button is on. */
+.header-right.mobile-menu-offcanvas .mobile-navigation {
+	right: auto;
+	left: 0;
+	transform: translateX(-100%);
+}
+
+.header-right.mobile-menu-offcanvas .mobile-navigation.is-open {
+	transform: none;
 }
 
 .header-icon-button {
@@ -1303,7 +1341,7 @@ body.mobile-nav-open {
 --------------------------------------------- */
 .page-banner {
 	position: relative;
-	padding-block: clamp(2.5rem, 6vw, 4rem);
+	padding-block: clamp(1.75rem, 4vw, 2.75rem);
 	border-bottom: 1px solid color-mix(in srgb, var(--crrg-on-banner) 8%, transparent);
 	background-color: var(--crrg-banner-bg);
 	background-position: center;
@@ -1317,11 +1355,11 @@ body.mobile-nav-open {
 }
 
 .page-banner--small {
-	padding-block: clamp(1.75rem, 4vw, 2.5rem);
+	padding-block: clamp(1.25rem, 3vw, 1.75rem);
 }
 
 .page-banner--large {
-	padding-block: clamp(4rem, 10vw, 7rem);
+	padding-block: clamp(3rem, 7vw, 5rem);
 }
 
 .page-banner--has-image {
@@ -1389,7 +1427,7 @@ body.mobile-nav-open {
 }
 
 .breadcrumbs {
-	margin-bottom: 0.85rem;
+	margin-bottom: 0.6rem;
 	font-size: 0.85rem;
 }
 
@@ -1437,7 +1475,7 @@ body.mobile-nav-open {
 	width: 100%;
 	max-width: calc(var(--crrg-container) + 2 * var(--crrg-gutter));
 	margin-inline: auto;
-	padding: clamp(2rem, 5vw, 3.5rem) var(--crrg-gutter);
+	padding: var(--crrg-content-top, 1.75rem) var(--crrg-gutter) clamp(2rem, 5vw, 3.5rem);
 }
 
 .content-wrap--full-width {
@@ -2622,8 +2660,8 @@ body.mobile-nav-open {
 	display: flex;
 	position: relative;
 	align-items: center;
-	min-height: 520px;
-	padding-block: clamp(3.5rem, 8vw, 6rem);
+	min-height: 480px;
+	padding-block: clamp(2.5rem, 6vw, 4.5rem);
 	background-color: var(--crrg-hero-overlay);
 	background-position: center;
 	background-size: cover;
@@ -2642,15 +2680,15 @@ body.mobile-nav-open {
 }
 
 .crrg-hero--small {
-	min-height: 360px;
+	min-height: 320px;
 }
 
 .crrg-hero--medium {
-	min-height: 460px;
+	min-height: 420px;
 }
 
 .crrg-hero--large {
-	min-height: 600px;
+	min-height: 540px;
 }
 
 .crrg-hero--screen {

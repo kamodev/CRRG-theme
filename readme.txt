@@ -3,7 +3,7 @@ Contributors: crrg
 Requires at least: 6.3
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.1.5
+Stable tag: 0.1.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, news, two-columns, three-columns, left-sidebar, right-sidebar, grid-layout, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, block-patterns, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
@@ -18,9 +18,10 @@ layout, all managed in Appearance > Customize:
 * Front page sections: hero banner, info bar, feature cards, page content,
   latest posts, call to action and two widget areas, each with its own
   on/off switch and a drag-and-drop order.
-* Three header layouts, an optional top bar, sticky and transparent headers,
-  a header button, search and social icons, and a slide-in or drop-down
-  mobile menu with a configurable breakpoint.
+* Four header layouts (logo left, logo right, centred, stacked), an
+  optional top bar, sticky and transparent headers, an optional header
+  button, search and social icons, and a slide-in or drop-down mobile menu
+  with a configurable breakpoint.
 * Five content layouts (right sidebar, left sidebar, both sidebars, no
   sidebar, full width) chosen per content type, per post or page, or with a
   page template.
@@ -56,6 +57,17 @@ layout templates under Page Attributes / Template.
 Customize > CRRG Theme Options > Typography > Font source > System fonts only.
 
 == Changelog ==
+
+= 0.1.7 =
+* New "Show the header button" switch: turn off the "Join the Club"
+  button for a header with just the logo and menu.
+* New header layout "Logo right, menu left". On phones the menu button
+  sits on the left and the slide-in menu opens from the left.
+* Less space below the header: tighter header padding, title banner and
+  hero, and a smaller gap above page content.
+* New sliders for "Header padding" and "Space above the content".
+* The mobile menu now switches at 1280 px by default, as intended in
+  0.1.1, so long menus don't wrap on smaller laptops.
 
 = 0.1.5 =
 * Full-screen layout by default: content fills the browser window. Choose
