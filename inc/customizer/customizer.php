@@ -502,10 +502,27 @@ function crrg_customize_header( $wp_customize ) {
 			'type'    => 'radio',
 			'choices' => array(
 				'default'  => __( 'Logo left, menu right', 'crrg' ),
+				'right'    => __( 'Logo right, menu left', 'crrg' ),
 				'centered' => __( 'Logo centred, menu below', 'crrg' ),
 				'stacked'  => __( 'Logo left with header widget area, menu bar below', 'crrg' ),
 			),
 		)
+	);
+	crrg_add_option(
+		$wp_customize,
+		'header_padding',
+		array(
+			'label'       => __( 'Header padding (above and below the logo)', 'crrg' ),
+			'section'     => 'crrg_header',
+			'type'        => 'slider',
+			'unit'        => 'px',
+			'input_attrs' => array(
+				'min'  => 0,
+				'max'  => 40,
+				'step' => 1,
+			),
+		),
+		array( 'transport' => 'postMessage' )
 	);
 	crrg_add_option(
 		$wp_customize,
@@ -583,10 +600,24 @@ function crrg_customize_header( $wp_customize ) {
 	);
 	crrg_add_option(
 		$wp_customize,
+		'header_cta_enable',
+		array(
+			'label'       => __( 'Show the header button', 'crrg' ),
+			'description' => __( 'Turn off for a header with just the logo and menu. The search button has its own setting above.', 'crrg' ),
+			'section'     => 'crrg_header',
+			'type'        => 'checkbox',
+		)
+	);
+	$cta_active = static function () {
+		return (bool) crrg_get_option( 'header_cta_enable' );
+	};
+	crrg_add_option(
+		$wp_customize,
 		'header_cta_text',
 		array(
-			'label'   => __( 'Button text', 'crrg' ),
-			'section' => 'crrg_header',
+			'label'           => __( 'Button text', 'crrg' ),
+			'section'         => 'crrg_header',
+			'active_callback' => $cta_active,
 		),
 		array( 'transport' => 'postMessage' )
 	);
@@ -594,19 +625,20 @@ function crrg_customize_header( $wp_customize ) {
 		$wp_customize,
 		'header_cta_url',
 		array(
-			'label'       => __( 'Button link', 'crrg' ),
-			'description' => __( 'Leave empty to hide the button.', 'crrg' ),
-			'section'     => 'crrg_header',
-			'type'        => 'url',
+			'label'           => __( 'Button link', 'crrg' ),
+			'section'         => 'crrg_header',
+			'type'            => 'url',
+			'active_callback' => $cta_active,
 		)
 	);
 	crrg_add_option(
 		$wp_customize,
 		'header_cta_new_tab',
 		array(
-			'label'   => __( 'Open button link in a new tab', 'crrg' ),
-			'section' => 'crrg_header',
-			'type'    => 'checkbox',
+			'label'           => __( 'Open button link in a new tab', 'crrg' ),
+			'section'         => 'crrg_header',
+			'type'            => 'checkbox',
+			'active_callback' => $cta_active,
 		)
 	);
 
@@ -752,6 +784,23 @@ function crrg_customize_layout( $wp_customize ) {
 			'input_attrs' => array(
 				'min'  => 0,
 				'max'  => 120,
+				'step' => 2,
+			),
+		),
+		array( 'transport' => 'postMessage' )
+	);
+	crrg_add_option(
+		$wp_customize,
+		'content_top_space',
+		array(
+			'label'       => __( 'Space above the content', 'crrg' ),
+			'description' => __( 'Gap between the header (or title banner) and the page content.', 'crrg' ),
+			'section'     => 'crrg_layout',
+			'type'        => 'slider',
+			'unit'        => 'px',
+			'input_attrs' => array(
+				'min'  => 0,
+				'max'  => 96,
 				'step' => 2,
 			),
 		),

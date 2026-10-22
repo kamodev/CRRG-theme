@@ -130,6 +130,8 @@ function crrg_css_variables() {
 	$vars['--crrg-container']      = $full_screen ? '100%' : absint( crrg_get_option( 'container_width' ) ) . 'px';
 	$vars['--crrg-readable']       = $full_text ? '100%' : absint( crrg_get_option( 'readable_width' ) ) . 'px';
 	$vars['--crrg-gutter-wide']    = $gutter . 'px';
+	$vars['--crrg-header-padding'] = absint( crrg_get_option( 'header_padding' ) ) . 'px';
+	$vars['--crrg-content-top']    = absint( crrg_get_option( 'content_top_space' ) ) . 'px';
 	$vars['--crrg-gutter-mobile']  = min( 20, $gutter ) . 'px';
 	$vars['--crrg-sidebar']        = absint( crrg_get_option( 'sidebar_width' ) ) . 'px';
 	$vars['--crrg-radius']         = absint( crrg_get_option( 'border_radius' ) ) . 'px';
@@ -175,7 +177,8 @@ function crrg_css_navigation_breakpoint() {
 		. '.site-header--centered .site-header__start{display:none}'
 		. '.site-header--centered .site-branding{flex-direction:row;text-align:start}'
 		. '.site-header--centered .site-branding__text{justify-items:start}'
-		. '.site-header .social-links--header{display:none}';
+		. '.site-header .social-links--header{display:none}'
+		. '.site-header--right .header-actions,.site-header--right .main-navigation+.header-actions{margin-inline-start:0;margin-inline-end:auto}';
 
 	return '@media (min-width:' . $bp . 'px){' . $desktop . '}'
 		. '@media (max-width:' . ( $bp - 1 ) . 'px){' . $mobile . '}'

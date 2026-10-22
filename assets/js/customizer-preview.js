@@ -97,6 +97,8 @@
 		sidebar_width: [ '--crrg-sidebar', 'px' ],
 		border_radius: [ '--crrg-radius', 'px' ],
 		logo_max_height: [ '--crrg-logo-height', 'px' ],
+		header_padding: [ '--crrg-header-padding', 'px' ],
+		content_top_space: [ '--crrg-content-top', 'px' ],
 		heading_weight: [ '--crrg-heading-weight', '' ]
 	};
 
