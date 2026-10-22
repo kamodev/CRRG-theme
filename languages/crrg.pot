@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: CRRG 0.1.1\n"
+"Project-Id-Version: CRRG 0.1.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/crrg\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-21T20:49:11+00:00\n"
+"POT-Creation-Date: 2026-10-22T01:43:37+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: crrg\n"
@@ -33,7 +33,7 @@ msgstr ""
 
 #. Author of the theme
 #: style.css
-#: inc/customizer/defaults.php:225
+#: inc/customizer/defaults.php:229
 msgid "Castle Rock Repeater Group"
 msgstr ""
 
@@ -103,7 +103,7 @@ msgid "Home"
 msgstr ""
 
 #: inc/breadcrumbs.php:78
-#: inc/customizer/defaults.php:274
+#: inc/customizer/defaults.php:278
 #: inc/template-tags.php:214
 msgid "Latest News"
 msgstr ""
@@ -112,6 +112,10 @@ msgstr ""
 #: inc/breadcrumbs.php:147
 #, php-format
 msgid "Search: %s"
+msgstr ""
+
+#: inc/customizer/controls/class-crrg-range-control.php:74
+msgid "Reset"
 msgstr ""
 
 #. translators: %s: section name.
@@ -182,667 +186,715 @@ msgstr ""
 msgid "Default (from Customizer)"
 msgstr ""
 
-#: inc/customizer/customizer.php:139
+#: inc/customizer/customizer.php:145
 msgid "All categories"
 msgstr ""
 
-#: inc/customizer/customizer.php:185
+#: inc/customizer/customizer.php:192
 msgid "CRRG Theme Options"
 msgstr ""
 
-#: inc/customizer/customizer.php:186
+#: inc/customizer/customizer.php:193
 msgid "Header, layout, sidebars, blog, front page, footer and social settings."
 msgstr ""
 
-#: inc/customizer/customizer.php:215
+#: inc/customizer/customizer.php:222
 msgid "Show the CRRG badge logo when no logo is selected"
 msgstr ""
 
-#: inc/customizer/customizer.php:216
+#: inc/customizer/customizer.php:223
 msgid "The site title is always shown when there is no logo."
 msgstr ""
 
-#: inc/customizer/customizer.php:226
-msgid "Logo maximum height (px)"
+#: inc/customizer/customizer.php:233
+msgid "Logo maximum height"
 msgstr ""
 
-#: inc/customizer/customizer.php:242
+#: inc/customizer/customizer.php:250
 msgid "Display site title"
 msgstr ""
 
-#: inc/customizer/customizer.php:252
+#: inc/customizer/customizer.php:260
 msgid "Display tagline"
 msgstr ""
 
-#: inc/customizer/customizer.php:262
+#: inc/customizer/customizer.php:270
 #: inc/widgets/class-crrg-widget-contact.php:51
 msgid "Club call sign"
 msgstr ""
 
-#: inc/customizer/customizer.php:263
+#: inc/customizer/customizer.php:271
 msgid "Shown as a badge next to the site title. Leave empty to hide."
 msgstr ""
 
-#: inc/customizer/customizer.php:277
+#: inc/customizer/customizer.php:285
 msgid "Colors"
 msgstr ""
 
-#: inc/customizer/customizer.php:278
+#: inc/customizer/customizer.php:286
 msgid "Pick a preset to fill every colour at once, then fine-tune any individual colour below. Text on the hero, banner and buttons switches between black and white automatically for contrast."
 msgstr ""
 
-#: inc/customizer/customizer.php:280
+#: inc/customizer/customizer.php:288
 msgid "Custom"
 msgstr ""
 
-#: inc/customizer/customizer.php:286
+#: inc/customizer/customizer.php:294
 msgid "Colour preset"
 msgstr ""
 
-#: inc/customizer/customizer.php:298
+#: inc/customizer/customizer.php:306
 msgid "Brand (from the CRRG logo)"
 msgstr ""
 
-#: inc/customizer/customizer.php:299
+#: inc/customizer/customizer.php:307
 msgid "Primary: dark details (icons, tables, search button)"
 msgstr ""
 
-#: inc/customizer/customizer.php:300
+#: inc/customizer/customizer.php:308
 msgid "Secondary: buttons and call-to-action band"
 msgstr ""
 
-#: inc/customizer/customizer.php:301
+#: inc/customizer/customizer.php:309
 msgid "Accent: underlines, badges, highlights"
 msgstr ""
 
-#: inc/customizer/customizer.php:302
+#: inc/customizer/customizer.php:310
 msgid "Content"
 msgstr ""
 
-#: inc/customizer/customizer.php:303
+#: inc/customizer/customizer.php:311
 msgid "Page background"
 msgstr ""
 
-#: inc/customizer/customizer.php:304
+#: inc/customizer/customizer.php:312
 msgid "Card / content background"
 msgstr ""
 
-#: inc/customizer/customizer.php:305
+#: inc/customizer/customizer.php:313
 msgid "Body text"
 msgstr ""
 
-#: inc/customizer/customizer.php:306
+#: inc/customizer/customizer.php:314
 msgid "Headings"
 msgstr ""
 
-#: inc/customizer/customizer.php:307
+#: inc/customizer/customizer.php:315
 msgid "Links"
 msgstr ""
 
-#: inc/customizer/customizer.php:308
+#: inc/customizer/customizer.php:316
 msgid "Links on hover"
 msgstr ""
 
-#: inc/customizer/customizer.php:309
+#: inc/customizer/customizer.php:317
 msgid "Top bar & header"
 msgstr ""
 
-#: inc/customizer/customizer.php:310
+#: inc/customizer/customizer.php:318
 msgid "Top bar background"
 msgstr ""
 
-#: inc/customizer/customizer.php:311
-#: inc/customizer/customizer.php:624
+#: inc/customizer/customizer.php:319
+#: inc/customizer/customizer.php:635
 msgid "Top bar text"
 msgstr ""
 
-#: inc/customizer/customizer.php:312
+#: inc/customizer/customizer.php:320
 msgid "Header background"
 msgstr ""
 
-#: inc/customizer/customizer.php:313
+#: inc/customizer/customizer.php:321
 msgid "Header text & menu links"
 msgstr ""
 
-#: inc/customizer/customizer.php:314
+#: inc/customizer/customizer.php:322
 msgid "Hero & title banner"
 msgstr ""
 
-#: inc/customizer/customizer.php:315
+#: inc/customizer/customizer.php:323
 msgid "Hero background (when no image is set)"
 msgstr ""
 
-#: inc/customizer/customizer.php:316
+#: inc/customizer/customizer.php:324
 msgid "Title banner background"
 msgstr ""
 
-#: inc/customizer/customizer.php:317
+#: inc/customizer/customizer.php:325
 msgid "Overlay on hero and banner images"
 msgstr ""
 
-#: inc/customizer/customizer.php:318
-#: inc/customizer/customizer.php:1450
+#: inc/customizer/customizer.php:326
+#: inc/customizer/customizer.php:1532
 #: template-parts/footer/site-info.php:28
 msgid "Footer"
 msgstr ""
 
-#: inc/customizer/customizer.php:319
+#: inc/customizer/customizer.php:327
 msgid "Footer background"
 msgstr ""
 
-#: inc/customizer/customizer.php:320
+#: inc/customizer/customizer.php:328
 msgid "Footer text"
 msgstr ""
 
-#: inc/customizer/customizer.php:321
+#: inc/customizer/customizer.php:329
 msgid "Footer headings"
 msgstr ""
 
-#: inc/customizer/customizer.php:322
+#: inc/customizer/customizer.php:330
 msgid "Footer bottom bar background"
 msgstr ""
 
-#: inc/customizer/customizer.php:358
-msgid "Overlay opacity (%)"
+#: inc/customizer/customizer.php:366
+msgid "Overlay opacity"
 msgstr ""
 
-#: inc/customizer/customizer.php:381
+#: inc/customizer/customizer.php:390
 msgid "Typography"
 msgstr ""
 
-#: inc/customizer/customizer.php:391
+#: inc/customizer/customizer.php:400
 msgid "Font source"
 msgstr ""
 
-#: inc/customizer/customizer.php:392
+#: inc/customizer/customizer.php:401
 msgid "Google Fonts are loaded from fonts.googleapis.com. Choose \"System fonts only\" to avoid any external request."
 msgstr ""
 
-#: inc/customizer/customizer.php:396
+#: inc/customizer/customizer.php:405
 msgid "Google Fonts"
 msgstr ""
 
-#: inc/customizer/customizer.php:397
+#: inc/customizer/customizer.php:406
 msgid "System fonts only"
 msgstr ""
 
-#: inc/customizer/customizer.php:405
+#: inc/customizer/customizer.php:414
 msgid "Body font"
 msgstr ""
 
-#: inc/customizer/customizer.php:415
+#: inc/customizer/customizer.php:424
 msgid "Heading & menu font"
 msgstr ""
 
-#: inc/customizer/customizer.php:425
-msgid "Base font size (px)"
+#: inc/customizer/customizer.php:434
+msgid "Base font size"
 msgstr ""
 
-#: inc/customizer/customizer.php:439
+#: inc/customizer/customizer.php:449
 msgid "Heading weight"
 msgstr ""
 
-#: inc/customizer/customizer.php:443
+#: inc/customizer/customizer.php:453
 msgid "Regular (400)"
 msgstr ""
 
-#: inc/customizer/customizer.php:444
+#: inc/customizer/customizer.php:454
 msgid "Medium (500)"
 msgstr ""
 
-#: inc/customizer/customizer.php:445
+#: inc/customizer/customizer.php:455
 msgid "Semi-bold (600)"
 msgstr ""
 
-#: inc/customizer/customizer.php:446
+#: inc/customizer/customizer.php:456
 msgid "Bold (700)"
 msgstr ""
 
-#: inc/customizer/customizer.php:455
+#: inc/customizer/customizer.php:465
 msgid "Uppercase headings"
 msgstr ""
 
-#: inc/customizer/customizer.php:464
+#: inc/customizer/customizer.php:474
 msgid "Uppercase menu links & buttons"
 msgstr ""
 
-#: inc/customizer/customizer.php:480
+#: inc/customizer/customizer.php:490
 #: inc/widget-areas.php:43
 msgid "Header"
 msgstr ""
 
-#: inc/customizer/customizer.php:490
+#: inc/customizer/customizer.php:500
 msgid "Header layout"
 msgstr ""
 
-#: inc/customizer/customizer.php:494
+#: inc/customizer/customizer.php:504
 msgid "Logo left, menu right"
 msgstr ""
 
-#: inc/customizer/customizer.php:495
+#: inc/customizer/customizer.php:505
 msgid "Logo centred, menu below"
 msgstr ""
 
-#: inc/customizer/customizer.php:496
+#: inc/customizer/customizer.php:506
 msgid "Logo left with header widget area, menu bar below"
 msgstr ""
 
-#: inc/customizer/customizer.php:504
+#: inc/customizer/customizer.php:514
 msgid "Sticky header"
 msgstr ""
 
-#: inc/customizer/customizer.php:513
+#: inc/customizer/customizer.php:523
 msgid "Transparent header over the front page hero"
 msgstr ""
 
-#: inc/customizer/customizer.php:522
+#: inc/customizer/customizer.php:532
 msgid "Show search button"
 msgstr ""
 
-#: inc/customizer/customizer.php:531
+#: inc/customizer/customizer.php:541
 msgid "Show social icons in the header"
 msgstr ""
 
-#: inc/customizer/customizer.php:540
+#: inc/customizer/customizer.php:550
 msgid "Mobile menu style"
 msgstr ""
 
-#: inc/customizer/customizer.php:544
+#: inc/customizer/customizer.php:554
 msgid "Slide-in panel"
 msgstr ""
 
-#: inc/customizer/customizer.php:545
+#: inc/customizer/customizer.php:555
 msgid "Drop-down below header"
 msgstr ""
 
-#: inc/customizer/customizer.php:553
-msgid "Switch to the mobile menu below (px)"
+#: inc/customizer/customizer.php:563
+msgid "Switch to the mobile menu below"
 msgstr ""
 
-#: inc/customizer/customizer.php:554
+#: inc/customizer/customizer.php:564
 msgid "Raise this if your menu wraps onto two lines on smaller laptops."
 msgstr ""
 
-#: inc/customizer/customizer.php:568
+#: inc/customizer/customizer.php:579
 msgid "Header button"
 msgstr ""
 
-#: inc/customizer/customizer.php:577
-#: inc/customizer/customizer.php:1426
+#: inc/customizer/customizer.php:588
+#: inc/customizer/customizer.php:1508
 #: inc/widgets/class-crrg-widget-cta.php:51
 msgid "Button text"
 msgstr ""
 
-#: inc/customizer/customizer.php:586
-#: inc/customizer/customizer.php:1434
+#: inc/customizer/customizer.php:597
+#: inc/customizer/customizer.php:1516
 msgid "Button link"
 msgstr ""
 
-#: inc/customizer/customizer.php:587
+#: inc/customizer/customizer.php:598
 msgid "Leave empty to hide the button."
 msgstr ""
 
-#: inc/customizer/customizer.php:596
+#: inc/customizer/customizer.php:607
 msgid "Open button link in a new tab"
 msgstr ""
 
-#: inc/customizer/customizer.php:606
+#: inc/customizer/customizer.php:617
 msgid "Top Bar"
 msgstr ""
 
-#: inc/customizer/customizer.php:615
+#: inc/customizer/customizer.php:626
 msgid "Show top bar"
 msgstr ""
 
-#: inc/customizer/customizer.php:625
+#: inc/customizer/customizer.php:636
 msgid "Basic HTML allowed. Good for net times or a notice."
 msgstr ""
 
-#: inc/customizer/customizer.php:635
+#: inc/customizer/customizer.php:646
 msgid "Show the \"Top Bar\" menu"
 msgstr ""
 
-#: inc/customizer/customizer.php:636
+#: inc/customizer/customizer.php:647
 msgid "Assign a menu to the Top Bar location under Menus."
 msgstr ""
 
-#: inc/customizer/customizer.php:645
-#: inc/customizer/customizer.php:1509
+#: inc/customizer/customizer.php:656
+#: inc/customizer/customizer.php:1591
 msgid "Show social icons"
 msgstr ""
 
-#: inc/customizer/customizer.php:661
+#: inc/customizer/customizer.php:672
 msgid "Layout & Sidebars"
 msgstr ""
 
-#: inc/customizer/customizer.php:662
+#: inc/customizer/customizer.php:673
 msgid "Default layouts per content type. Individual posts and pages can override these in the editor (\"CRRG Layout\" box) or with a page template."
 msgstr ""
 
-#: inc/customizer/customizer.php:672
-msgid "Site style"
+#: inc/customizer/customizer.php:683
+msgid "Site width"
 msgstr ""
 
-#: inc/customizer/customizer.php:676
-msgid "Wide (full-width backgrounds)"
+#: inc/customizer/customizer.php:687
+msgid "Full screen (content fills the browser window)"
 msgstr ""
 
-#: inc/customizer/customizer.php:677
-msgid "Boxed (site framed on the page background)"
+#: inc/customizer/customizer.php:688
+msgid "Fixed maximum width (set with the slider below)"
 msgstr ""
 
-#: inc/customizer/customizer.php:685
-msgid "Content width (px)"
-msgstr ""
-
-#: inc/customizer/customizer.php:700
-msgid "Sidebar width (px)"
-msgstr ""
-
-#: inc/customizer/customizer.php:713
-msgid "Blog (posts page)"
-msgstr ""
-
-#: inc/customizer/customizer.php:714
-msgid "Archives (categories, tags, dates, authors)"
+#: inc/customizer/customizer.php:696
+msgid "Maximum content width"
 msgstr ""
 
 #: inc/customizer/customizer.php:715
-msgid "Search results"
+msgid "Pages and posts without a sidebar"
 msgstr ""
 
-#: inc/customizer/customizer.php:716
-msgid "Single posts"
+#: inc/customizer/customizer.php:719
+msgid "Use the full content width"
 msgstr ""
 
-#: inc/customizer/customizer.php:717
-msgid "Pages"
+#: inc/customizer/customizer.php:720
+msgid "Narrower reading column (set with the slider below)"
 msgstr ""
 
-#: inc/customizer/customizer.php:736
-msgid "Sticky sidebars on desktop"
+#: inc/customizer/customizer.php:728
+msgid "Reading column width"
 msgstr ""
 
-#: inc/customizer/customizer.php:745
-msgid "Card & widget style"
+#: inc/customizer/customizer.php:747
+msgid "Side padding"
 msgstr ""
 
-#: inc/customizer/customizer.php:749
-msgid "Soft shadow"
+#: inc/customizer/customizer.php:748
+msgid "Space between the content and the edges of the screen. Phones use at most 20 px."
 msgstr ""
 
-#: inc/customizer/customizer.php:750
-msgid "Bordered"
-msgstr ""
-
-#: inc/customizer/customizer.php:751
-msgid "Flat"
-msgstr ""
-
-#: inc/customizer/customizer.php:759
-msgid "Corner radius (px)"
+#: inc/customizer/customizer.php:764
+msgid "Sidebar width"
 msgstr ""
 
 #: inc/customizer/customizer.php:780
-msgid "Page Title Banner"
+msgid "Site frame"
 msgstr ""
 
 #: inc/customizer/customizer.php:781
-msgid "The banner with the title and breadcrumbs shown at the top of inner pages, posts and archives."
+msgid "Boxed frames the whole site on a darker background. It has most effect with a fixed maximum width."
 msgstr ""
 
-#: inc/customizer/customizer.php:791
-msgid "Show the title banner"
+#: inc/customizer/customizer.php:785
+msgid "Wide (full-width backgrounds)"
+msgstr ""
+
+#: inc/customizer/customizer.php:786
+msgid "Boxed (site framed on the page background)"
 msgstr ""
 
 #: inc/customizer/customizer.php:792
+msgid "Blog (posts page)"
+msgstr ""
+
+#: inc/customizer/customizer.php:793
+msgid "Archives (categories, tags, dates, authors)"
+msgstr ""
+
+#: inc/customizer/customizer.php:794
+msgid "Search results"
+msgstr ""
+
+#: inc/customizer/customizer.php:795
+msgid "Single posts"
+msgstr ""
+
+#: inc/customizer/customizer.php:796
+msgid "Pages"
+msgstr ""
+
+#: inc/customizer/customizer.php:815
+msgid "Sticky sidebars on desktop"
+msgstr ""
+
+#: inc/customizer/customizer.php:824
+msgid "Content & widget boxes"
+msgstr ""
+
+#: inc/customizer/customizer.php:825
+msgid "How posts, pages, sidebar widgets and cards are framed."
+msgstr ""
+
+#: inc/customizer/customizer.php:829
+msgid "White box with a soft shadow"
+msgstr ""
+
+#: inc/customizer/customizer.php:830
+msgid "White box with a thin border"
+msgstr ""
+
+#: inc/customizer/customizer.php:831
+msgid "White box, no border or shadow"
+msgstr ""
+
+#: inc/customizer/customizer.php:832
+msgid "No box: no background, border or shadow"
+msgstr ""
+
+#: inc/customizer/customizer.php:840
+msgid "Corner radius"
+msgstr ""
+
+#: inc/customizer/customizer.php:862
+msgid "Page Title Banner"
+msgstr ""
+
+#: inc/customizer/customizer.php:863
+msgid "The banner with the title and breadcrumbs shown at the top of inner pages, posts and archives."
+msgstr ""
+
+#: inc/customizer/customizer.php:873
+msgid "Show the title banner"
+msgstr ""
+
+#: inc/customizer/customizer.php:874
 msgid "When off, titles are shown inside the content area instead."
 msgstr ""
 
-#: inc/customizer/customizer.php:801
+#: inc/customizer/customizer.php:883
 msgid "Banner height"
 msgstr ""
 
-#: inc/customizer/customizer.php:805
-#: inc/customizer/customizer.php:1104
+#: inc/customizer/customizer.php:887
+#: inc/customizer/customizer.php:1186
 #: inc/setup.php:115
 msgid "Small"
 msgstr ""
 
-#: inc/customizer/customizer.php:806
-#: inc/customizer/customizer.php:1105
+#: inc/customizer/customizer.php:888
+#: inc/customizer/customizer.php:1187
 msgid "Medium"
 msgstr ""
 
-#: inc/customizer/customizer.php:807
-#: inc/customizer/customizer.php:1106
+#: inc/customizer/customizer.php:889
+#: inc/customizer/customizer.php:1188
 #: inc/setup.php:125
 msgid "Large"
 msgstr ""
 
-#: inc/customizer/customizer.php:815
-#: inc/customizer/customizer.php:1115
+#: inc/customizer/customizer.php:897
+#: inc/customizer/customizer.php:1197
 msgid "Text alignment"
 msgstr ""
 
-#: inc/customizer/customizer.php:819
-#: inc/customizer/customizer.php:1119
+#: inc/customizer/customizer.php:901
+#: inc/customizer/customizer.php:1201
 msgid "Left"
 msgstr ""
 
-#: inc/customizer/customizer.php:820
-#: inc/customizer/customizer.php:1120
+#: inc/customizer/customizer.php:902
+#: inc/customizer/customizer.php:1202
 msgid "Centre"
 msgstr ""
 
-#: inc/customizer/customizer.php:828
+#: inc/customizer/customizer.php:910
 msgid "Default background image"
 msgstr ""
 
-#: inc/customizer/customizer.php:837
+#: inc/customizer/customizer.php:919
 msgid "Use the featured image as the banner background on pages"
 msgstr ""
 
-#: inc/customizer/customizer.php:846
+#: inc/customizer/customizer.php:928
 msgid "Show breadcrumbs"
 msgstr ""
 
-#: inc/customizer/customizer.php:847
+#: inc/customizer/customizer.php:929
 msgid "Uses Yoast SEO, Rank Math or SEOPress breadcrumbs when one of them is active."
 msgstr ""
 
-#: inc/customizer/customizer.php:863
+#: inc/customizer/customizer.php:945
 msgid "Blog & Archives"
 msgstr ""
 
-#: inc/customizer/customizer.php:873
+#: inc/customizer/customizer.php:955
 msgid "Post list style"
 msgstr ""
 
-#: inc/customizer/customizer.php:877
+#: inc/customizer/customizer.php:959
 msgid "List (image beside text)"
 msgstr ""
 
-#: inc/customizer/customizer.php:878
+#: inc/customizer/customizer.php:960
 msgid "Classic (large image above text)"
 msgstr ""
 
-#: inc/customizer/customizer.php:879
+#: inc/customizer/customizer.php:961
 msgid "Grid of cards"
 msgstr ""
 
-#: inc/customizer/customizer.php:887
+#: inc/customizer/customizer.php:969
 msgid "Grid columns"
 msgstr ""
 
-#: inc/customizer/customizer.php:901
+#: inc/customizer/customizer.php:983
 msgid "Excerpt length (words)"
 msgstr ""
 
-#: inc/customizer/customizer.php:914
+#: inc/customizer/customizer.php:996
 msgid "\"Read more\" text"
 msgstr ""
 
-#: inc/customizer/customizer.php:922
+#: inc/customizer/customizer.php:1004
 msgid "Show featured images"
 msgstr ""
 
-#: inc/customizer/customizer.php:929
+#: inc/customizer/customizer.php:1011
 msgid "Show date"
 msgstr ""
 
-#: inc/customizer/customizer.php:930
+#: inc/customizer/customizer.php:1012
 msgid "Show author"
 msgstr ""
 
-#: inc/customizer/customizer.php:931
+#: inc/customizer/customizer.php:1013
 msgid "Show categories"
 msgstr ""
 
-#: inc/customizer/customizer.php:932
+#: inc/customizer/customizer.php:1014
 msgid "Show comment count"
 msgstr ""
 
-#: inc/customizer/customizer.php:950
+#: inc/customizer/customizer.php:1032
 msgid "Pagination"
 msgstr ""
 
-#: inc/customizer/customizer.php:954
+#: inc/customizer/customizer.php:1036
 msgid "Numbered"
 msgstr ""
 
-#: inc/customizer/customizer.php:955
+#: inc/customizer/customizer.php:1037
 msgid "Older / newer links"
 msgstr ""
 
-#: inc/customizer/customizer.php:970
+#: inc/customizer/customizer.php:1052
 msgid "Single Posts"
 msgstr ""
 
-#: inc/customizer/customizer.php:977
+#: inc/customizer/customizer.php:1059
 msgid "Show featured image"
 msgstr ""
 
-#: inc/customizer/customizer.php:978
+#: inc/customizer/customizer.php:1060
 msgid "Show post meta (date, author, categories)"
 msgstr ""
 
-#: inc/customizer/customizer.php:979
+#: inc/customizer/customizer.php:1061
 msgid "Show tags"
 msgstr ""
 
-#: inc/customizer/customizer.php:980
+#: inc/customizer/customizer.php:1062
 msgid "Show author box"
 msgstr ""
 
-#: inc/customizer/customizer.php:981
+#: inc/customizer/customizer.php:1063
 msgid "Show previous / next post links"
 msgstr ""
 
-#: inc/customizer/customizer.php:982
+#: inc/customizer/customizer.php:1064
 msgid "Show related posts"
 msgstr ""
 
-#: inc/customizer/customizer.php:1000
+#: inc/customizer/customizer.php:1082
 msgid "Number of related posts"
 msgstr ""
 
-#: inc/customizer/customizer.php:1021
+#: inc/customizer/customizer.php:1103
 msgid "Front Page Sections"
 msgstr ""
 
-#: inc/customizer/customizer.php:1022
+#: inc/customizer/customizer.php:1104
 msgid "Sections shown on the site front page. Works with both \"Your latest posts\" and a static front page (Settings &rarr; Reading)."
 msgstr ""
 
-#: inc/customizer/customizer.php:1031
+#: inc/customizer/customizer.php:1113
 msgid "Section Order"
 msgstr ""
 
-#: inc/customizer/customizer.php:1040
+#: inc/customizer/customizer.php:1122
 msgid "Drag to reorder the front page sections"
 msgstr ""
 
-#: inc/customizer/customizer.php:1041
+#: inc/customizer/customizer.php:1123
 msgid "Turn individual sections on or off in their own panels."
 msgstr ""
 
-#: inc/customizer/customizer.php:1053
+#: inc/customizer/customizer.php:1135
 msgid "Hero Banner"
 msgstr ""
 
-#: inc/customizer/customizer.php:1062
+#: inc/customizer/customizer.php:1144
 msgid "Show hero banner"
 msgstr ""
 
-#: inc/customizer/customizer.php:1071
-#: inc/customizer/customizer.php:1407
+#: inc/customizer/customizer.php:1153
+#: inc/customizer/customizer.php:1489
 #: inc/setup.php:84
 msgid "Heading"
 msgstr ""
 
-#: inc/customizer/customizer.php:1080
-#: inc/customizer/customizer.php:1198
-#: inc/customizer/customizer.php:1296
-#: inc/customizer/customizer.php:1416
+#: inc/customizer/customizer.php:1162
+#: inc/customizer/customizer.php:1280
+#: inc/customizer/customizer.php:1378
+#: inc/customizer/customizer.php:1498
 #: inc/setup.php:89
 #: inc/widgets/class-crrg-widget-cta.php:45
 msgid "Text"
 msgstr ""
 
-#: inc/customizer/customizer.php:1090
+#: inc/customizer/customizer.php:1172
 msgid "Background image"
 msgstr ""
 
-#: inc/customizer/customizer.php:1091
+#: inc/customizer/customizer.php:1173
 msgid "Recommended at least 1920 &times; 900 px. Without an image a radio-wave pattern is used."
 msgstr ""
 
-#: inc/customizer/customizer.php:1100
+#: inc/customizer/customizer.php:1182
 msgid "Height"
 msgstr ""
 
-#: inc/customizer/customizer.php:1107
+#: inc/customizer/customizer.php:1189
 msgid "Full screen"
 msgstr ""
 
 #. translators: %d: button number.
-#: inc/customizer/customizer.php:1130
+#: inc/customizer/customizer.php:1212
 #, php-format
 msgid "Button %d text"
 msgstr ""
 
 #. translators: %d: button number.
-#: inc/customizer/customizer.php:1139
+#: inc/customizer/customizer.php:1221
 #, php-format
 msgid "Button %d link"
 msgstr ""
 
-#: inc/customizer/customizer.php:1150
+#: inc/customizer/customizer.php:1232
 msgid "Info Bar"
 msgstr ""
 
-#: inc/customizer/customizer.php:1151
+#: inc/customizer/customizer.php:1233
 msgid "A strip of up to four quick facts under the hero, such as net times and frequencies. Items with an empty title are hidden."
 msgstr ""
 
-#: inc/customizer/customizer.php:1160
+#: inc/customizer/customizer.php:1242
 msgid "Show info bar"
 msgstr ""
 
 #. translators: %d: item number.
-#: inc/customizer/customizer.php:1171
+#: inc/customizer/customizer.php:1253
 #, php-format
 msgid "Item %d"
 msgstr ""
 
-#: inc/customizer/customizer.php:1180
-#: inc/customizer/customizer.php:1278
+#: inc/customizer/customizer.php:1262
+#: inc/customizer/customizer.php:1360
 msgid "Icon"
 msgstr ""
 
-#: inc/customizer/customizer.php:1190
-#: inc/customizer/customizer.php:1288
+#: inc/customizer/customizer.php:1272
+#: inc/customizer/customizer.php:1370
 #: inc/widgets/class-crrg-widget-contact.php:40
 #: inc/widgets/class-crrg-widget-cta.php:40
 #: inc/widgets/class-crrg-widget-net-schedule.php:40
@@ -852,144 +904,144 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: inc/customizer/customizer.php:1209
+#: inc/customizer/customizer.php:1291
 msgid "Feature Cards"
 msgstr ""
 
-#: inc/customizer/customizer.php:1210
+#: inc/customizer/customizer.php:1292
 msgid "Up to four cards. Cards with an empty title are hidden."
 msgstr ""
 
-#: inc/customizer/customizer.php:1219
+#: inc/customizer/customizer.php:1301
 msgid "Show feature cards"
 msgstr ""
 
-#: inc/customizer/customizer.php:1228
-#: inc/customizer/customizer.php:1355
+#: inc/customizer/customizer.php:1310
+#: inc/customizer/customizer.php:1437
 msgid "Section heading"
 msgstr ""
 
-#: inc/customizer/customizer.php:1236
+#: inc/customizer/customizer.php:1318
 msgid "Section intro"
 msgstr ""
 
-#: inc/customizer/customizer.php:1245
+#: inc/customizer/customizer.php:1327
 msgid "Columns"
 msgstr ""
 
-#: inc/customizer/customizer.php:1259
+#: inc/customizer/customizer.php:1341
 msgid "Card link text"
 msgstr ""
 
 #. translators: %d: card number.
-#: inc/customizer/customizer.php:1269
+#: inc/customizer/customizer.php:1351
 #, php-format
 msgid "Card %d"
 msgstr ""
 
-#: inc/customizer/customizer.php:1305
+#: inc/customizer/customizer.php:1387
 msgid "Link"
 msgstr ""
 
-#: inc/customizer/customizer.php:1316
+#: inc/customizer/customizer.php:1398
 msgid "Page Content"
 msgstr ""
 
-#: inc/customizer/customizer.php:1317
+#: inc/customizer/customizer.php:1399
 msgid "With a static front page this is the content of that page. With \"Your latest posts\" it is the list of posts."
 msgstr ""
 
-#: inc/customizer/customizer.php:1326
+#: inc/customizer/customizer.php:1408
 msgid "Show page content / posts"
 msgstr ""
 
-#: inc/customizer/customizer.php:1336
+#: inc/customizer/customizer.php:1418
 msgid "Latest Posts"
 msgstr ""
 
-#: inc/customizer/customizer.php:1345
+#: inc/customizer/customizer.php:1427
 msgid "Show latest posts"
 msgstr ""
 
-#: inc/customizer/customizer.php:1346
+#: inc/customizer/customizer.php:1428
 msgid "Only shown with a static front page; with \"Your latest posts\" the page content section already lists posts."
 msgstr ""
 
-#: inc/customizer/customizer.php:1363
+#: inc/customizer/customizer.php:1445
 #: inc/widgets/class-crrg-widget-recent-posts.php:45
 msgid "Number of posts"
 msgstr ""
 
-#: inc/customizer/customizer.php:1379
+#: inc/customizer/customizer.php:1461
 #: inc/widgets/class-crrg-widget-recent-posts.php:50
 msgid "Category"
 msgstr ""
 
-#: inc/customizer/customizer.php:1389
+#: inc/customizer/customizer.php:1471
 msgid "Call to Action"
 msgstr ""
 
-#: inc/customizer/customizer.php:1398
+#: inc/customizer/customizer.php:1480
 msgid "Show call to action band"
 msgstr ""
 
-#: inc/customizer/customizer.php:1460
+#: inc/customizer/customizer.php:1542
 msgid "Footer widget columns"
 msgstr ""
 
-#: inc/customizer/customizer.php:1461
+#: inc/customizer/customizer.php:1543
 msgid "Add widgets to the Footer 1&ndash;4 widget areas. Set to 0 to hide the widget area."
 msgstr ""
 
-#: inc/customizer/customizer.php:1477
+#: inc/customizer/customizer.php:1559
 msgid "Column widths"
 msgstr ""
 
-#: inc/customizer/customizer.php:1481
+#: inc/customizer/customizer.php:1563
 msgid "Equal"
 msgstr ""
 
-#: inc/customizer/customizer.php:1482
+#: inc/customizer/customizer.php:1564
 msgid "First column wider"
 msgstr ""
 
-#: inc/customizer/customizer.php:1490
+#: inc/customizer/customizer.php:1572
 msgid "Copyright text"
 msgstr ""
 
-#: inc/customizer/customizer.php:1491
+#: inc/customizer/customizer.php:1573
 msgid "Basic HTML allowed. {year} and {site} are replaced with the current year and site title."
 msgstr ""
 
-#: inc/customizer/customizer.php:1500
+#: inc/customizer/customizer.php:1582
 msgid "Show the \"Footer\" menu"
 msgstr ""
 
-#: inc/customizer/customizer.php:1518
+#: inc/customizer/customizer.php:1600
 msgid "Show \"Powered by WordPress\" credit"
 msgstr ""
 
-#: inc/customizer/customizer.php:1527
+#: inc/customizer/customizer.php:1609
 msgid "Show \"back to top\" button"
 msgstr ""
 
-#: inc/customizer/customizer.php:1543
+#: inc/customizer/customizer.php:1625
 msgid "Social Links"
 msgstr ""
 
-#: inc/customizer/customizer.php:1544
+#: inc/customizer/customizer.php:1626
 msgid "Icons are shown for every network with a link. Choose where they appear in the Top Bar, Header and Footer sections, or with the \"CRRG: Social Icons\" widget."
 msgstr ""
 
-#: inc/customizer/customizer.php:1556
+#: inc/customizer/customizer.php:1638
 msgid "Email address"
 msgstr ""
 
-#: inc/customizer/customizer.php:1568
+#: inc/customizer/customizer.php:1650
 msgid "Show RSS feed icon"
 msgstr ""
 
-#: inc/customizer/customizer.php:1577
+#: inc/customizer/customizer.php:1659
 msgid "Open social links in a new tab"
 msgstr ""
 
@@ -1026,66 +1078,66 @@ msgstr ""
 msgid "Sunday Night Net 7:00 PM MT on 146.670&minus; (PL 100.0)"
 msgstr ""
 
-#: inc/customizer/defaults.php:205
+#: inc/customizer/defaults.php:209
 msgid "Read more"
 msgstr ""
 
-#: inc/customizer/defaults.php:226
+#: inc/customizer/defaults.php:230
 msgid "Serving amateur radio operators across the Colorado Front Range since the 1960s. Three linked repeaters, weekly nets, and a welcoming community of hams."
 msgstr ""
 
-#: inc/customizer/defaults.php:230
+#: inc/customizer/defaults.php:234
 #: patterns/repeater-table.php:14
 msgid "Our Repeaters"
 msgstr ""
 
-#: inc/customizer/defaults.php:232
+#: inc/customizer/defaults.php:236
 msgid "Join a Net"
 msgstr ""
 
-#: inc/customizer/defaults.php:237
+#: inc/customizer/defaults.php:241
 #: patterns/net-schedule.php:21
 msgid "Sunday Night Net"
 msgstr ""
 
-#: inc/customizer/defaults.php:238
+#: inc/customizer/defaults.php:242
 msgid "7:00 PM MT &middot; 146.670&minus;"
 msgstr ""
 
-#: inc/customizer/defaults.php:240
+#: inc/customizer/defaults.php:244
 msgid "Three Repeaters"
 msgstr ""
 
-#: inc/customizer/defaults.php:241
+#: inc/customizer/defaults.php:245
 msgid "2 m &amp; 70 cm, PL 100.0 Hz"
 msgstr ""
 
-#: inc/customizer/defaults.php:243
+#: inc/customizer/defaults.php:247
 #: patterns/net-schedule.php:37
 msgid "Digital Learning Net"
 msgstr ""
 
-#: inc/customizer/defaults.php:244
+#: inc/customizer/defaults.php:248
 msgid "Saturdays 10:30 AM MT"
 msgstr ""
 
-#: inc/customizer/defaults.php:246
+#: inc/customizer/defaults.php:250
 msgid "Everyone Welcome"
 msgstr ""
 
-#: inc/customizer/defaults.php:247
+#: inc/customizer/defaults.php:251
 msgid "Licensed hams of all levels"
 msgstr ""
 
-#: inc/customizer/defaults.php:250
+#: inc/customizer/defaults.php:254
 msgid "What We Do"
 msgstr ""
 
-#: inc/customizer/defaults.php:251
+#: inc/customizer/defaults.php:255
 msgid "Keeping the Front Range on the air &mdash; every day and when it matters most."
 msgstr ""
 
-#: inc/customizer/defaults.php:254
+#: inc/customizer/defaults.php:258
 #: inc/starter-content.php:153
 #: inc/widgets/class-crrg-widget-repeaters.php:41
 #: inc/widgets/class-crrg-widget-repeaters.php:45
@@ -1093,58 +1145,58 @@ msgstr ""
 msgid "Repeaters"
 msgstr ""
 
-#: inc/customizer/defaults.php:255
+#: inc/customizer/defaults.php:259
 msgid "Wide-area 2 m and 70 cm coverage from Denver to the Palmer Divide, maintained by club volunteers."
 msgstr ""
 
-#: inc/customizer/defaults.php:258
+#: inc/customizer/defaults.php:262
 #: inc/starter-content.php:140
 #: inc/widgets/class-crrg-widget-net-schedule.php:41
 #: patterns/net-schedule.php:14
 msgid "Weekly Nets"
 msgstr ""
 
-#: inc/customizer/defaults.php:259
+#: inc/customizer/defaults.php:263
 msgid "Check in on the Sunday evening net or learn digital modes on Saturday mornings."
 msgstr ""
 
-#: inc/customizer/defaults.php:262
+#: inc/customizer/defaults.php:266
 msgid "Emergency Readiness"
 msgstr ""
 
-#: inc/customizer/defaults.php:263
+#: inc/customizer/defaults.php:267
 msgid "Practise the skills that keep communities connected when phones and power go down."
 msgstr ""
 
-#: inc/customizer/defaults.php:266
+#: inc/customizer/defaults.php:270
 #: patterns/feature-cards.php:67
 #: patterns/membership.php:14
 msgid "Membership"
 msgstr ""
 
-#: inc/customizer/defaults.php:267
+#: inc/customizer/defaults.php:271
 msgid "Support the repeaters and join a friendly group of operators from across Colorado."
 msgstr ""
 
-#: inc/customizer/defaults.php:269
+#: inc/customizer/defaults.php:273
 msgid "Learn more"
 msgstr ""
 
-#: inc/customizer/defaults.php:279
+#: inc/customizer/defaults.php:283
 msgid "Support the Repeaters"
 msgstr ""
 
-#: inc/customizer/defaults.php:280
+#: inc/customizer/defaults.php:284
 msgid "Membership dues keep our machines on the air for everyone. Become a member today."
 msgstr ""
 
-#: inc/customizer/defaults.php:281
+#: inc/customizer/defaults.php:285
 #: inc/widgets/class-crrg-widget-cta.php:41
 #: patterns/feature-cards.php:58
 msgid "Become a Member"
 msgstr ""
 
-#: inc/customizer/defaults.php:287
+#: inc/customizer/defaults.php:291
 msgid "&copy; {year} {site}. All rights reserved."
 msgstr ""
 

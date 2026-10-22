@@ -77,12 +77,12 @@
 	--crrg-heading-transform: uppercase;
 	--crrg-nav-transform: uppercase;
 
-	--crrg-container: 1200px;
+	--crrg-container: 100%; /* "100%" in full-screen mode, otherwise a px maximum. */
 	--crrg-sidebar: 320px;
-	--crrg-readable: 860px;
+	--crrg-readable: 100%; /* Column width for pages without a sidebar. */
 	--crrg-radius: 6px;
 	--crrg-logo-height: 64px;
-	--crrg-gutter: 1.25rem;
+	--crrg-gutter: var(--crrg-gutter-mobile, 1.25rem);
 	--crrg-gap: 2.5rem;
 	--crrg-card-pad: clamp(1.25rem, 3vw, 2.25rem);
 	--crrg-header-min: 84px; /* Minimum height of the logo row. */
@@ -98,7 +98,7 @@
 
 @media (min-width: 768px) {
 	:root {
-		--crrg-gutter: 2rem;
+		--crrg-gutter: var(--crrg-gutter-wide, 2rem);
 	}
 }
 
@@ -1544,8 +1544,77 @@ body.mobile-nav-open {
 .cards-flat .archive-header,
 .cards-flat .related-posts,
 .cards-flat .post-navigation,
-.cards-flat .not-found-page {
+.cards-flat .not-found-page,
+.cards-flat .feature-card,
+.cards-flat .front-widgets .widget {
 	box-shadow: none;
+}
+
+/* No box: content sits directly on the page background. */
+.cards-plain .entry,
+.cards-plain .entry-card,
+.cards-plain .widget-area .widget,
+.cards-plain .author-box,
+.cards-plain .comments-area,
+.cards-plain .archive-header,
+.cards-plain .related-posts,
+.cards-plain .post-navigation,
+.cards-plain .not-found-page,
+.cards-plain .feature-card,
+.cards-plain .front-widgets .widget {
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+	box-shadow: none;
+}
+
+.cards-plain .entry,
+.cards-plain .widget-area .widget,
+.cards-plain .author-box,
+.cards-plain .comments-area,
+.cards-plain .archive-header,
+.cards-plain .related-posts,
+.cards-plain .front-widgets .widget {
+	padding: 0;
+}
+
+/* Full-width blocks no longer need to reach past a box's padding. */
+.cards-plain.has-sidebar .entry .entry-content > .alignfull {
+	margin-inline: 0;
+}
+
+.cards-plain .entry-card:hover,
+.cards-plain .feature-card:hover {
+	transform: none;
+	box-shadow: none;
+}
+
+.cards-plain .entry-card .post-thumbnail img {
+	border-radius: var(--crrg-radius);
+}
+
+.cards-plain .post-list .entry-card__body,
+.cards-plain .front-latest .entry-card__body {
+	padding: 1.25rem 0 0;
+}
+
+@media (min-width: 600px) {
+	.cards-plain .post-list--list .entry-card:has(> .post-thumbnail) .entry-card__body {
+		padding: 0 0 0 1.5rem;
+	}
+}
+
+.cards-plain .feature-card {
+	padding: 0;
+}
+
+.cards-plain .post-navigation a,
+.cards-plain .not-found-page {
+	padding-inline: 0;
+}
+
+.cards-plain .post-navigation .nav-next {
+	border-inline-start: 0;
 }
 
 /* Full-width layout drops the card around the content. */

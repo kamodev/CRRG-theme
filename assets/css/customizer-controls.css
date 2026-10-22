@@ -59,3 +59,37 @@
 .crrg-sortable__item.ui-sortable-helper {
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
+
+.crrg-range {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-top: 6px;
+}
+
+/* Higher specificity than the core ".customize-control input[type=...]" widths. */
+.customize-control .crrg-range .crrg-range__slider {
+	flex: 1;
+	width: auto;
+	min-width: 0;
+	accent-color: #2271b1;
+}
+
+.customize-control .crrg-range .crrg-range__number {
+	flex: 0 0 72px;
+	width: 72px;
+	min-height: 30px;
+	padding: 0 6px;
+}
+
+.crrg-range__unit {
+	color: #50575e;
+}
+
+.crrg-range__reset {
+	margin-inline-start: 2px;
+	color: #50575e;
+	font-size: 12px;
+	text-decoration: underline;
+	cursor: pointer;
+}

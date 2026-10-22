@@ -122,7 +122,15 @@ function crrg_css_variables() {
 	$vars['--crrg-heading-transform'] = crrg_get_option( 'heading_uppercase' ) ? 'uppercase' : 'none';
 	$vars['--crrg-nav-transform']     = crrg_get_option( 'nav_uppercase' ) ? 'uppercase' : 'none';
 
-	$vars['--crrg-container']      = absint( crrg_get_option( 'container_width' ) ) . 'px';
+	// Full screen: the container fills the window, less the side padding.
+	$full_screen = 'fixed' !== crrg_get_option( 'width_mode' );
+	$full_text   = 'readable' !== crrg_get_option( 'content_width_mode' );
+	$gutter      = absint( crrg_get_option( 'site_gutter' ) );
+
+	$vars['--crrg-container']      = $full_screen ? '100%' : absint( crrg_get_option( 'container_width' ) ) . 'px';
+	$vars['--crrg-readable']       = $full_text ? '100%' : absint( crrg_get_option( 'readable_width' ) ) . 'px';
+	$vars['--crrg-gutter-wide']    = $gutter . 'px';
+	$vars['--crrg-gutter-mobile']  = min( 20, $gutter ) . 'px';
 	$vars['--crrg-sidebar']        = absint( crrg_get_option( 'sidebar_width' ) ) . 'px';
 	$vars['--crrg-radius']         = absint( crrg_get_option( 'border_radius' ) ) . 'px';
 	$vars['--crrg-logo-height']    = absint( crrg_get_option( 'logo_max_height' ) ) . 'px';

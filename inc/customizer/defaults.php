@@ -179,7 +179,11 @@ function crrg_option_defaults() {
 
 			// Layout.
 			'site_layout'              => 'wide',
+			'width_mode'               => 'full',
 			'container_width'          => 1200,
+			'content_width_mode'       => 'full',
+			'readable_width'           => 860,
+			'site_gutter'              => 32,
 			'sidebar_width'            => 320,
 			'layout_blog'              => 'right-sidebar',
 			'layout_archive'           => 'right-sidebar',

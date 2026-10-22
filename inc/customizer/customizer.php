@@ -53,8 +53,10 @@ function crrg_layout_choices( $with_default = false ) {
  * @param WP_Customize_Manager $wp_customize Manager.
  * @param string               $id           Option key (must exist in the defaults).
  * @param array                $control      Control args. 'type' defaults to 'text'.
- *                                           Use 'type' => 'color' for colour pickers
- *                                           and 'type' => 'image' for image uploads.
+ *                                           Use 'type' => 'color' for colour pickers,
+ *                                           'type' => 'image' for image uploads and
+ *                                           'type' => 'slider' (with 'unit') for a
+ *                                           range slider with a number box.
  * @param array                $setting      Optional extra setting args.
  */
 function crrg_add_option( $wp_customize, $id, $control, $setting = array() ) {
@@ -79,6 +81,7 @@ function crrg_add_option( $wp_customize, $id, $control, $setting = array() ) {
 			break;
 		case 'number':
 		case 'range':
+		case 'slider':
 			$sanitize = 'crrg_sanitize_number';
 			break;
 		case 'color':
@@ -125,6 +128,9 @@ function crrg_add_option( $wp_customize, $id, $control, $setting = array() ) {
 	} elseif ( 'sortable' === $type ) {
 		unset( $control['type'] );
 		$wp_customize->add_control( new CRRG_Sortable_Control( $wp_customize, $id, $control ) );
+	} elseif ( 'slider' === $type ) {
+		unset( $control['type'] );
+		$wp_customize->add_control( new CRRG_Range_Control( $wp_customize, $id, $control ) );
 	} else {
 		$wp_customize->add_control( $id, $control );
 	}
@@ -153,6 +159,7 @@ function crrg_category_choices() {
 function crrg_customize_register( $wp_customize ) {
 	require_once CRRG_DIR . '/inc/customizer/controls/class-crrg-heading-control.php';
 	require_once CRRG_DIR . '/inc/customizer/controls/class-crrg-sortable-control.php';
+	require_once CRRG_DIR . '/inc/customizer/controls/class-crrg-range-control.php';
 
 	// Live preview for core settings.
 	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
@@ -223,9 +230,10 @@ function crrg_customize_site_identity( $wp_customize ) {
 		$wp_customize,
 		'logo_max_height',
 		array(
-			'label'       => __( 'Logo maximum height (px)', 'crrg' ),
+			'label'       => __( 'Logo maximum height', 'crrg' ),
 			'section'     => 'title_tagline',
-			'type'        => 'number',
+			'type'        => 'slider',
+			'unit'        => 'px',
 			'input_attrs' => array(
 				'min'  => 24,
 				'max'  => 200,
@@ -355,9 +363,10 @@ function crrg_customize_colors( $wp_customize ) {
 		$wp_customize,
 		'hero_overlay_opacity',
 		array(
-			'label'       => __( 'Overlay opacity (%)', 'crrg' ),
+			'label'       => __( 'Overlay opacity', 'crrg' ),
 			'section'     => 'colors',
-			'type'        => 'range',
+			'type'        => 'slider',
+			'unit'        => '%',
 			'input_attrs' => array(
 				'min'  => 0,
 				'max'  => 100,
@@ -422,9 +431,10 @@ function crrg_customize_typography( $wp_customize ) {
 		$wp_customize,
 		'base_font_size',
 		array(
-			'label'       => __( 'Base font size (px)', 'crrg' ),
+			'label'       => __( 'Base font size', 'crrg' ),
 			'section'     => 'crrg_typography',
-			'type'        => 'number',
+			'type'        => 'slider',
+			'unit'        => 'px',
 			'input_attrs' => array(
 				'min' => 14,
 				'max' => 22,
@@ -550,10 +560,11 @@ function crrg_customize_header( $wp_customize ) {
 		$wp_customize,
 		'mobile_breakpoint',
 		array(
-			'label'       => __( 'Switch to the mobile menu below (px)', 'crrg' ),
+			'label'       => __( 'Switch to the mobile menu below', 'crrg' ),
 			'description' => __( 'Raise this if your menu wraps onto two lines on smaller laptops.', 'crrg' ),
 			'section'     => 'crrg_header',
-			'type'        => 'number',
+			'type'        => 'slider',
+			'unit'        => 'px',
 			'input_attrs' => array(
 				'min'  => 600,
 				'max'  => 1600,
@@ -667,14 +678,14 @@ function crrg_customize_layout( $wp_customize ) {
 
 	crrg_add_option(
 		$wp_customize,
-		'site_layout',
+		'width_mode',
 		array(
-			'label'   => __( 'Site style', 'crrg' ),
+			'label'   => __( 'Site width', 'crrg' ),
 			'section' => 'crrg_layout',
 			'type'    => 'radio',
 			'choices' => array(
-				'wide'  => __( 'Wide (full-width backgrounds)', 'crrg' ),
-				'boxed' => __( 'Boxed (site framed on the page background)', 'crrg' ),
+				'full'  => __( 'Full screen (content fills the browser window)', 'crrg' ),
+				'fixed' => __( 'Fixed maximum width (set with the slider below)', 'crrg' ),
 			),
 		)
 	);
@@ -682,13 +693,66 @@ function crrg_customize_layout( $wp_customize ) {
 		$wp_customize,
 		'container_width',
 		array(
-			'label'       => __( 'Content width (px)', 'crrg' ),
-			'section'     => 'crrg_layout',
-			'type'        => 'number',
-			'input_attrs' => array(
+			'label'           => __( 'Maximum content width', 'crrg' ),
+			'section'         => 'crrg_layout',
+			'type'            => 'slider',
+			'unit'            => 'px',
+			'input_attrs'     => array(
 				'min'  => 960,
-				'max'  => 1680,
+				'max'  => 1920,
 				'step' => 10,
+			),
+			'active_callback' => static function () {
+				return 'fixed' === crrg_get_option( 'width_mode' );
+			},
+		),
+		array( 'transport' => 'postMessage' )
+	);
+	crrg_add_option(
+		$wp_customize,
+		'content_width_mode',
+		array(
+			'label'   => __( 'Pages and posts without a sidebar', 'crrg' ),
+			'section' => 'crrg_layout',
+			'type'    => 'radio',
+			'choices' => array(
+				'full'     => __( 'Use the full content width', 'crrg' ),
+				'readable' => __( 'Narrower reading column (set with the slider below)', 'crrg' ),
+			),
+		)
+	);
+	crrg_add_option(
+		$wp_customize,
+		'readable_width',
+		array(
+			'label'           => __( 'Reading column width', 'crrg' ),
+			'section'         => 'crrg_layout',
+			'type'            => 'slider',
+			'unit'            => 'px',
+			'input_attrs'     => array(
+				'min'  => 600,
+				'max'  => 1400,
+				'step' => 10,
+			),
+			'active_callback' => static function () {
+				return 'readable' === crrg_get_option( 'content_width_mode' );
+			},
+		),
+		array( 'transport' => 'postMessage' )
+	);
+	crrg_add_option(
+		$wp_customize,
+		'site_gutter',
+		array(
+			'label'       => __( 'Side padding', 'crrg' ),
+			'description' => __( 'Space between the content and the edges of the screen. Phones use at most 20 px.', 'crrg' ),
+			'section'     => 'crrg_layout',
+			'type'        => 'slider',
+			'unit'        => 'px',
+			'input_attrs' => array(
+				'min'  => 0,
+				'max'  => 120,
+				'step' => 2,
 			),
 		),
 		array( 'transport' => 'postMessage' )
@@ -697,16 +761,31 @@ function crrg_customize_layout( $wp_customize ) {
 		$wp_customize,
 		'sidebar_width',
 		array(
-			'label'       => __( 'Sidebar width (px)', 'crrg' ),
+			'label'       => __( 'Sidebar width', 'crrg' ),
 			'section'     => 'crrg_layout',
-			'type'        => 'number',
+			'type'        => 'slider',
+			'unit'        => 'px',
 			'input_attrs' => array(
 				'min'  => 220,
-				'max'  => 440,
+				'max'  => 480,
 				'step' => 10,
 			),
 		),
 		array( 'transport' => 'postMessage' )
+	);
+	crrg_add_option(
+		$wp_customize,
+		'site_layout',
+		array(
+			'label'       => __( 'Site frame', 'crrg' ),
+			'description' => __( 'Boxed frames the whole site on a darker background. It has most effect with a fixed maximum width.', 'crrg' ),
+			'section'     => 'crrg_layout',
+			'type'        => 'radio',
+			'choices'     => array(
+				'wide'  => __( 'Wide (full-width backgrounds)', 'crrg' ),
+				'boxed' => __( 'Boxed (site framed on the page background)', 'crrg' ),
+			),
+		)
 	);
 
 	$contexts = array(
@@ -742,13 +821,15 @@ function crrg_customize_layout( $wp_customize ) {
 		$wp_customize,
 		'card_style',
 		array(
-			'label'   => __( 'Card & widget style', 'crrg' ),
-			'section' => 'crrg_layout',
-			'type'    => 'radio',
-			'choices' => array(
-				'shadow'   => __( 'Soft shadow', 'crrg' ),
-				'bordered' => __( 'Bordered', 'crrg' ),
-				'flat'     => __( 'Flat', 'crrg' ),
+			'label'       => __( 'Content & widget boxes', 'crrg' ),
+			'description' => __( 'How posts, pages, sidebar widgets and cards are framed.', 'crrg' ),
+			'section'     => 'crrg_layout',
+			'type'        => 'radio',
+			'choices'     => array(
+				'shadow'   => __( 'White box with a soft shadow', 'crrg' ),
+				'bordered' => __( 'White box with a thin border', 'crrg' ),
+				'flat'     => __( 'White box, no border or shadow', 'crrg' ),
+				'plain'    => __( 'No box: no background, border or shadow', 'crrg' ),
 			),
 		)
 	);
@@ -756,9 +837,10 @@ function crrg_customize_layout( $wp_customize ) {
 		$wp_customize,
 		'border_radius',
 		array(
-			'label'       => __( 'Corner radius (px)', 'crrg' ),
+			'label'       => __( 'Corner radius', 'crrg' ),
 			'section'     => 'crrg_layout',
-			'type'        => 'range',
+			'type'        => 'slider',
+			'unit'        => 'px',
 			'input_attrs' => array(
 				'min' => 0,
 				'max' => 24,

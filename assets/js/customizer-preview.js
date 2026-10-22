@@ -93,6 +93,7 @@
 	var sizes = {
 		base_font_size: [ '--crrg-font-size', 'px' ],
 		container_width: [ '--crrg-container', 'px' ],
+		readable_width: [ '--crrg-readable', 'px' ],
 		sidebar_width: [ '--crrg-sidebar', 'px' ],
 		border_radius: [ '--crrg-radius', 'px' ],
 		logo_max_height: [ '--crrg-logo-height', 'px' ],
@@ -104,6 +105,14 @@
 			value.bind( function ( to ) {
 				root.style.setProperty( sizes[ setting ][ 0 ], to + sizes[ setting ][ 1 ] );
 			} );
+		} );
+	} );
+
+	api( 'site_gutter', function ( value ) {
+		value.bind( function ( to ) {
+			var px = Math.max( 0, parseInt( to, 10 ) || 0 );
+			root.style.setProperty( '--crrg-gutter-wide', px + 'px' );
+			root.style.setProperty( '--crrg-gutter-mobile', Math.min( 20, px ) + 'px' );
 		} );
 	} );
 

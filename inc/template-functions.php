@@ -19,6 +19,7 @@ function crrg_body_classes( $classes ) {
 	$classes[] = 'site-' . crrg_get_option( 'site_layout' );
 	$classes[] = 'header-' . crrg_get_option( 'header_layout' );
 	$classes[] = 'cards-' . crrg_get_option( 'card_style' );
+	$classes[] = 'width-' . ( 'fixed' === crrg_get_option( 'width_mode' ) ? 'fixed' : 'full' );
 	$classes[] = 'mobile-menu-' . crrg_get_option( 'mobile_menu_style' );
 
 	$classes[] = crrg_is_dark( 'header_bg_color' ) ? 'header-is-dark' : 'header-is-light';
