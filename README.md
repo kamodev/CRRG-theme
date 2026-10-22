@@ -97,9 +97,11 @@ The repeater and net details in the patterns, widgets and starter content come f
 Releases are published by GitHub Actions (`.github/workflows/release.yml`). To publish a release:
 
 1. Set the new version in `style.css` (`Version:`), `functions.php` (`CRRG_VERSION`) and `readme.txt` (`Stable tag:` and a changelog entry).
-2. Merge to `main`, then push a matching tag, e.g. `git tag v0.1.5 && git push origin v0.1.5`.
+2. Merge to `main`, then either:
+   - open **Actions → Release → Run workflow** and run it on `main`. The tag `v<version>` is created from `style.css`. Or
+   - push a matching tag, e.g. `git tag v0.1.5 && git push origin v0.1.5`. The workflow checks that the tag matches the theme version.
 
-The workflow checks that the tag matches the theme version, builds `crrg-<version>.zip` (with `crrg/` as its folder, excluding development files), and creates the GitHub release with the changelog entry as notes and the ZIP attached. It can also be started from the Actions tab for an existing tag.
+The workflow builds `crrg-<version>.zip` (with `crrg/` as its folder, excluding development files) and publishes the GitHub release with the changelog entry as notes and the ZIP attached. Running it again for an existing release replaces the ZIP and notes.
 
 ## Development
 

@@ -1,7 +1,11 @@
-# Publishes a GitHub release with the installable theme ZIP when a version
-# tag (for example v0.1.5) is pushed. The tag must match the Version in
-# style.css. It can also be run by hand from the Actions tab for an
-# existing tag.
+# Publishes a GitHub release with the installable theme ZIP.
+#
+# - Push a version tag (for example v0.1.5) that matches the Version in
+#   style.css, or
+# - run it from the Actions tab ("Run workflow") on a branch: the tag
+#   v<Version from style.css> is created on that commit.
+#
+# Running it again for an existing release replaces the ZIP and notes.
 name: Release
 
 on:
@@ -9,10 +13,6 @@ on:
     tags:
       - 'v*'
   workflow_dispatch:
-    inputs:
-      tag:
-        description: Existing tag to release, for example v0.1.5
-        required: true
 
 permissions:
   contents: write
@@ -20,22 +20,28 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
-    env:
-      TAG: ${{ github.event.inputs.tag || github.ref_name }}
     steps:
-      - name: Check out the tagged commit
+      - name: Check out the code
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.inputs.tag || github.ref }}
 
-      - name: Check the tag matches the theme version
+      - name: Work out the version and tag
         run: |
           version=$(sed -n 's/^Version:[[:space:]]*//p' style.css | head -n 1 | tr -d '\r')
-          if [ "v${version}" != "${TAG}" ]; then
-            echo "::error::Tag ${TAG} does not match Version ${version} in style.css"
+          if [ -z "${version}" ]; then
+            echo "::error::No Version found in style.css"
             exit 1
           fi
+          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
+            tag="${GITHUB_REF_NAME}"
+            if [ "v${version}" != "${tag}" ]; then
+              echo "::error::Tag ${tag} does not match Version ${version} in style.css"
+              exit 1
+            fi
+          else
+            tag="v${version}"
+          fi
           echo "VERSION=${version}" >> "$GITHUB_ENV"
+          echo "TAG=${tag}" >> "$GITHUB_ENV"
 
       - name: Build the theme ZIP
         # .gitattributes keeps development files out of the archive.
@@ -59,8 +65,9 @@ jobs:
             gh release upload "${TAG}" "crrg-${VERSION}.zip" --clobber
             gh release edit "${TAG}" --notes-file notes.md
           else
+            # Creates the tag on this commit when it does not exist yet.
             gh release create "${TAG}" "crrg-${VERSION}.zip" \
+              --target "${GITHUB_SHA}" \
               --title "CRRG ${TAG}" \
-              --notes-file notes.md \
-              --verify-tag
+              --notes-file notes.md
           fi
